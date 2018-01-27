@@ -1,0 +1,21 @@
+{
+    "name": "react-native-bottom-action-sheet",
+    "version": "0.0.0",
+    "description": "React Native: Bottom Action Sheet",
+    "main": "RNBottomActionSheet.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/prscX/react-native-bottom-action-sheet.git"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "react-native"
+    ],
+    "author": "Pranav Raj Singh Chauhan",
+    "devDependencies": {
+        "prettier-pack": "0.0.4"
+    },
+    "license": "MIT"
+}
