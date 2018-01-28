@@ -45,3 +45,5 @@ buck-out/
 *.keystore
       
 .history/*
+ios/Pods/*
+ios/Podfile.lock

@@ -16,6 +16,13 @@ import {
 
 import RNBottomActionSheet from 'react-native-bottom-action-sheet'
 let facebook = require('./assets/facebook.png')
+let instagram = require('./assets/instagram.png')
+let skype = require("./assets/skype.png");
+let twitter = require("./assets/twitter.png");
+let whatsapp = require("./assets/whatsapp.png");
+let youtube = require("./assets/youtube.png");
+let linkedin = require("./assets/linkedin.png");
+let google = require("./assets/google.png");
 
 export default class App extends Component<{}> {
   _showAlertView = () => {
@@ -50,10 +57,14 @@ export default class App extends Component<{}> {
 
     let GridView = RNBottomActionSheet.GridView();
     GridView.setTitle("Awesome!");
-    GridView.addItem("Item 1", facebook);
-    GridView.addItem("Item 2", facebook);
-    GridView.addItem("Item 3", facebook);
-    GridView.addItem("Item 4", facebook);
+    GridView.addItem("Facebook", facebook);
+    GridView.addItem("Instagram", instagram);
+    GridView.addItem("Skype", skype);
+    GridView.addItem("Twitter", twitter);
+    GridView.addItem("WhatsApp", whatsapp);
+    GridView.addItem("YouTube", youtube);
+    GridView.addItem("Google", google);
+    GridView.addItem("LinkedIn", linkedin);
 
     GridView.show();
   }

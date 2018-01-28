@@ -60,14 +60,23 @@ RCT_EXPORT_METHOD(GridView:(NSDictionary *)props) {
         [itemTitles addObject: [item objectForKey: @"title"]];
 
         NSDictionary *icon = [item objectForKey: @"icon"];
-        
+
+        int width = [[icon objectForKey: @"width"] intValue];
+        int height = [[icon objectForKey: @"height"] intValue];
         NSString *imagePath = [icon objectForKey: @"uri"];
+        
         NSURL *url = [NSURL URLWithString: imagePath];
         NSData *data = [NSData dataWithContentsOfURL:url];
-        CIImage *ciImage = [CIImage imageWithData: data];
+
+        UIImage *image = [[UIImage alloc] initWithCIImage: [CIImage imageWithData: data]];
+
+        // Resize Image
+//        CGSize size = CGSizeMake(width, height);
+//        UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
+//        [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
+//        image = UIGraphicsGetImageFromCurrentImageContext();
+//        UIGraphicsEndImageContext();
         
-        
-        UIImage *image = [[UIImage alloc] initWithCIImage:ciImage];
         [itemIcons addObject: image];
     }
 
