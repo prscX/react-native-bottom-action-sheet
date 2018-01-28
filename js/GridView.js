@@ -15,7 +15,7 @@ class GridView {
   }
 
   addItem(title, icon) {
-    this.items.push({ title: title, icon: resolveAssetSource(icon) });
+    this.items.push({ title: title, icon: icon && resolveAssetSource(icon) });
   }
 
   setTheme(theme) {

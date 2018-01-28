@@ -1,4 +1,5 @@
 import { NativeModules } from "react-native";
+import resolveAssetSource from "react-native/Libraries/Image/resolveAssetSource";
 
 const { RNBottomActionSheet } = NativeModules;
 
@@ -17,7 +18,7 @@ class SheetView {
     this.items.push({
       title: title,
       subTitle: subTitle,
-      icon: icon
+      icon: icon && resolveAssetSource(icon)
     });
   }
 

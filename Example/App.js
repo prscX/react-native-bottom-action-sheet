@@ -49,10 +49,14 @@ export default class App extends Component<{}> {
   _showSheetView = () => {
     let SheetView = RNBottomActionSheet.SheetView()
     SheetView.setTitle("Awesome!")
-    SheetView.addItem('Item 1', 'Item 1 Description')
-    SheetView.addItem('Item 2', 'Item 2 Description')
-    SheetView.addItem('Item 3', 'Item 3 Description')
-    SheetView.addItem('Item 4', 'Item 4 Description')
+    SheetView.addItem('Facebook', 'Facebook App', facebook)
+    SheetView.addItem('Instagram', 'Instagram App', instagram)
+    SheetView.addItem('Skype', 'Skype App', skype)
+    SheetView.addItem('Twitter', 'Twitter App', twitter)
+    SheetView.addItem("WhatsApp", "WhatsApp App", whatsapp);
+    SheetView.addItem("YouTube", "YouTube App", youtube);
+    SheetView.addItem("Google", "Google App", google);
+    SheetView.addItem("LinkedIn", "LinkedIN App", linkedin);
 
     SheetView.setTheme('light')
     SheetView.setSelection(3)

@@ -1,19 +1,35 @@
 
 package ui.bottomactionsheet;
 
+import android.content.ContentResolver;
+import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.view.MenuItem;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 
 import com.github.javiersantos.bottomdialogs.BottomDialog;
+import com.github.rubensousa.bottomsheetbuilder.BottomSheetBuilder;
+import com.github.rubensousa.bottomsheetbuilder.BottomSheetMenuDialog;
+import com.github.rubensousa.bottomsheetbuilder.adapter.BottomSheetItemClickListener;
 
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Map;
+
+import java.net.URL;
 
 public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
 
@@ -64,5 +80,44 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
                 callback.invoke(0);
               }
             }).show();
+  }
+
+  @ReactMethod
+  public void SheetView(final ReadableMap props, final Callback callback) {
+    String title = props.getString("title");
+    ReadableArray items = props.getArray("items");
+
+    String theme = props.getString("theme");
+    int selection = props.getInt("selection");
+
+    BottomSheetBuilder bottomSheetBuilder = new BottomSheetBuilder(reactContext.getCurrentActivity(), R.style.Theme_Design_Light_BottomSheetDialog);
+    bottomSheetBuilder.setMode(BottomSheetBuilder.MODE_LIST);
+    bottomSheetBuilder.addTitleItem(title);
+
+    for (int index = 0; index < items.size(); index++) {
+      ReadableMap item = items.getMap(index);
+      ReadableMap icon = item.getMap("icon");
+
+      Drawable drawable = this.getIcon(icon);
+      bottomSheetBuilder.addItem(index, item.getString("title"), drawable);
+    }
+
+    BottomSheetMenuDialog dialog = bottomSheetBuilder.createDialog();
+    dialog.show();
+  }
+
+  private Drawable getIcon(ReadableMap icon) {
+    if (icon == null) return null;
+
+    try {
+      URL url = new URL(icon.getString("uri"));
+      Bitmap bitmap = BitmapFactory.decodeStream(url.openStream());
+
+      return new BitmapDrawable(reactContext.getResources(), bitmap);
+    } catch (Exception e) {
+
+    }
+
+    return null;
   }
 }
