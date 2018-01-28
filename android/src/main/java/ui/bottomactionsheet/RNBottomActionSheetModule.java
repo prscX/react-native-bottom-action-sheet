@@ -113,6 +113,13 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
       }
     }
 
+    bottomSheetBuilder.setItemClickListener(new BottomSheetItemClickListener() {
+      @Override
+      public void onBottomSheetItemClick(MenuItem item) {
+        callback.invoke(item.getItemId());
+      }
+    });
+
     BottomSheetMenuDialog dialog = bottomSheetBuilder.createDialog();
     dialog.show();
   }
@@ -135,6 +142,13 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
       Drawable drawable = this.getIcon(icon);
       bottomSheetBuilder.addItem(index, item.getString("title"), drawable);
     }
+    
+    bottomSheetBuilder.setItemClickListener(new BottomSheetItemClickListener() {
+      @Override
+      public void onBottomSheetItemClick(MenuItem item) {
+        callback.invoke(item.getItemId());
+      }
+    });
 
     BottomSheetMenuDialog dialog = bottomSheetBuilder.createDialog();
     dialog.show();
