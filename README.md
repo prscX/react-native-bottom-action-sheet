@@ -140,7 +140,7 @@ let AlertView = RNBottomActionSheet.AlertView()
 	- `show`
 
 ## TO DO
-- Support for Android features on iOS also
+- Enable Android customization features for iOS platform as well
 
 ## Credits
 
