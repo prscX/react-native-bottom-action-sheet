@@ -14,11 +14,19 @@ class SheetView {
     this.title = title;
   }
 
+  addDividerItem (title) {
+    this.items.push({
+      title: title,
+      divider: true
+    })
+  }
+
   addItem(title, subTitle, icon) {
     this.items.push({
       title: title,
       subTitle: subTitle,
-      icon: icon && resolveAssetSource(icon)
+      icon: icon && resolveAssetSource(icon),
+      divider: false
     });
   }
 

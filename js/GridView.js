@@ -7,7 +7,7 @@ class GridView {
   constructor() {
     this.items = new Array();
 
-    this.theme = 'light'
+    this.theme = "light";
   }
 
   setTitle(title) {
@@ -15,25 +15,32 @@ class GridView {
   }
 
   addItem(title, icon) {
-    this.items.push({ title: title, icon: icon && resolveAssetSource(icon) });
+    this.items.push({
+      title: title,
+      icon: icon && resolveAssetSource(icon),
+      divider: false
+    });
   }
 
   setTheme(theme) {
-    this.theme = theme
+    this.theme = theme;
   }
 
-  onSelection = (onSelection) => {
-    this._onSelection = onSelection
-  }
+  onSelection = onSelection => {
+    this._onSelection = onSelection;
+  };
 
   show() {
-    RNBottomActionSheet.GridView({
-      title: this.title,
-      items: this.items,
-      theme: this.theme
-    }, (selection) => {
-      this._onSelection && this._onSelection(selection)
-    });
+    RNBottomActionSheet.GridView(
+      {
+        title: this.title,
+        items: this.items,
+        theme: this.theme
+      },
+      selection => {
+        this._onSelection && this._onSelection(selection);
+      }
+    );
   }
 }
 

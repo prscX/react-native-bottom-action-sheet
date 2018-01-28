@@ -52,6 +52,8 @@ export default class App extends Component<{}> {
     SheetView.addItem('Facebook', 'Facebook App', facebook)
     SheetView.addItem('Instagram', 'Instagram App', instagram)
     SheetView.addItem('Skype', 'Skype App', skype)
+
+    // SheetView.addDividerItem("Items");
     SheetView.addItem('Twitter', 'Twitter App', twitter)
     SheetView.addItem("WhatsApp", "WhatsApp App", whatsapp);
     SheetView.addItem("YouTube", "YouTube App", youtube);

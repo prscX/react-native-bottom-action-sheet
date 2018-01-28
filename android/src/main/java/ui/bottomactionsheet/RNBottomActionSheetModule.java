@@ -96,6 +96,40 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
 
     for (int index = 0; index < items.size(); index++) {
       ReadableMap item = items.getMap(index);
+
+      boolean divider = item.getBoolean("divider");
+      if (divider) {
+        String dividerTitle = item.getString("title");
+        if (dividerTitle != null && dividerTitle.length() > 0) {
+          bottomSheetBuilder.addTitleItem(dividerTitle);
+        }
+
+        bottomSheetBuilder.addDividerItem();
+      } else {
+        ReadableMap icon = item.getMap("icon");
+
+        Drawable drawable = this.getIcon(icon);
+        bottomSheetBuilder.addItem(index, item.getString("title"), drawable);
+      }
+    }
+
+    BottomSheetMenuDialog dialog = bottomSheetBuilder.createDialog();
+    dialog.show();
+  }
+
+
+  @ReactMethod
+  public void GridView(final ReadableMap props, final Callback callback) {
+    String title = props.getString("title");
+    ReadableArray items = props.getArray("items");
+
+    String theme = props.getString("theme");
+
+    BottomSheetBuilder bottomSheetBuilder = new BottomSheetBuilder(reactContext.getCurrentActivity(), R.style.Theme_Design_Light_BottomSheetDialog);
+    bottomSheetBuilder.setMode(BottomSheetBuilder.MODE_GRID);
+
+    for (int index = 0; index < items.size(); index++) {
+      ReadableMap item = items.getMap(index);
       ReadableMap icon = item.getMap("icon");
 
       Drawable drawable = this.getIcon(icon);
@@ -105,6 +139,7 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
     BottomSheetMenuDialog dialog = bottomSheetBuilder.createDialog();
     dialog.show();
   }
+
 
   private Drawable getIcon(ReadableMap icon) {
     if (icon == null) return null;
