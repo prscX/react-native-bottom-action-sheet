@@ -6,6 +6,10 @@ const { RNBottomActionSheet } = NativeModules;
 class AlertView {
   constructor() {
       this.theme = 'light'
+      this.positiveText = 'OK'
+      this.positiveBackgroundColor = "#3f51b5"
+      this.positiveTextColor = '#FFFFFF'
+      this.negativeTextColor = "#3f51b5"
   }
 
   setTitle(title) {
@@ -64,10 +68,10 @@ class AlertView {
       negativeTextColor: this.negativeTextColor,
       theme: this.theme
     }, (selection) => {
-        if (selection === 0) {
-            this.onNegative && this.onNegative()
-        } else if (selection === 1) {
+        if (selection === 1) {
             this.onPositive && this.onPositive()
+        } else if (selection === 0) {
+            this.onNegative && this.onNegative();
         }
     });
   }

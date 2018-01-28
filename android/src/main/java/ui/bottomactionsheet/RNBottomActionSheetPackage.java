@@ -1,5 +1,5 @@
 
-package com.reactlibrary;
+package ui.bottomactionsheet;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -10,6 +10,9 @@ import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 import com.facebook.react.bridge.JavaScriptModule;
+
+import ui.bottomactionsheet.RNBottomActionSheetModule;
+
 public class RNBottomActionSheetPackage implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {

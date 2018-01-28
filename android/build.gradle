@@ -28,9 +28,11 @@ android {
 
 repositories {
     mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
     compile 'com.facebook.react:react-native:+'
+    compile 'com.github.javiersantos:BottomDialogs:1.2.1'
 }
   

@@ -136,6 +136,12 @@ android {
     }
 }
 
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+
 dependencies {
     compile project(':react-native-bottom-action-sheet')
     compile fileTree(dir: "libs", include: ["*.jar"])
