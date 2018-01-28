@@ -70,8 +70,6 @@ export default class App extends Component<{}> {
   }
 
   _showGridView = () => {
-    let icon = <Image source={facebook}></Image>
-
     let GridView = RNBottomActionSheet.GridView();
     GridView.setTitle("Awesome!");
     GridView.addItem("Facebook", facebook);

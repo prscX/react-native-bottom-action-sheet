@@ -49,8 +49,98 @@ Before we dive into on how to use this library. We would like to thank all the c
 ```javascript
 import RNBottomActionSheet from 'react-native-bottom-action-sheet';
 
-
 ```
+
+- **Sheet View**
+```javascript
+let SheetView = RNBottomActionSheet.SheetView()
+    SheetView.setTitle("Awesome!")
+    SheetView.addItem('Facebook', 'Facebook App', facebook)
+
+    SheetView.addDividerItem("Items");
+    SheetView.addItem("LinkedIn", "LinkedIN App", linkedin);
+
+    SheetView.setTheme('light')
+    SheetView.setSelection(3)
+
+    SheetView.onSelection(selection => {});
+    SheetView.show()
+```
+
+- **Grid View**
+```javascript
+let GridView = RNBottomActionSheet.GridView();
+    GridView.setTitle("Awesome!");
+    GridView.addItem("Facebook", facebook);
+    GridView.addItem("LinkedIn", linkedin);
+
+    GridView.setTheme('light')
+
+    GridView.onSelection((selection) => {})
+    GridView.show();
+```
+
+- **Alert View**
+```javascript
+let AlertView = RNBottomActionSheet.AlertView()
+    AlertView.setTitle("Awesome!");
+    AlertView.setMessage("What can we improve? Your feedback is always welcome.");
+    AlertView.setPositiveText("OK");
+    AlertView.setPositiveBackgroundColor("#eeffee");
+    AlertView.setPositiveTextColor("#006500");
+    AlertView.setNegativeText("Exit");
+    AlertView.setNegativeBackgroundColor("#ffebeb");
+    AlertView.setNegativeTextColor("#760000");
+    AlertView.onPositive(() => {})
+    AlertView.onNegative(() => {})
+    
+    AlertView.setTheme('light')
+    AlertView.show()
+```
+
+## API's
+
+- **Sheet View**
+	- `setTitle(title: string)`
+	- `addItem(title: string, subTitle: string, icon: image) - subTitle: iOS Only`
+	- `onSelection(selcFunc: function)`
+	- `show`
+	- `setTitleTextColor(color: string) - Android Only` 
+	- `setItemTextColor(color: string) - Android Only`
+	- `setItemTintColor(color: string) - Android Only`
+	- `setBackgroundColor(color: string) - Android Only`
+	- `setDelayDismissOnItemClick(flag: bool) - Android Only`
+	- `addDividerItem(title: string) - Android Only`
+	- `setTheme(theme: string) - iOS Only`
+	- `setSelection(selc: int) - iOS Only`
+
+- **Grid View**
+	- `setTitle(title: string)`
+	- `addItem(title: string, icon: image)`
+	- `onSelection(selcFunc: function)`
+	- `show`
+	- `setItemTextColor(color: string) - Android Only`
+	- `setItemTintColor(color: string) - Android Only`
+	- `setBackgroundColor(color: string) - Android Only`
+	- `setDelayDismissOnItemClick(flag: bool) - Android Only`
+	- `setTheme(theme: string): iOS Only`
+
+- **Alert View**
+	- `setTitle(title: string)`
+	- `setMessage(message: string)`
+	- `setPositiveText(text: string)`
+	- `setPositiveBackgroundColor(color: string)`
+	- `setPositiveTextColor(color: string)`
+	- `setNegativeText(text: string)`
+	- `setNegativeBackgroundColor(color: string)`
+	- `setNegativeTextColor(color: string)`
+	- `onPositive(selcFunc: function)`
+	- `onNegative(selcFunc: function)`
+	- `setTheme(theme: string) - iOS Only`
+	- `show`
+
+## TO DO
+- Support for Android features on iOS also
 
 ## Credits
 
