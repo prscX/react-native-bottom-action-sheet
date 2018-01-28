@@ -35,8 +35,12 @@ export default class App extends Component<{}> {
     AlertView.setNegativeText("Exit");
     AlertView.setNegativeBackgroundColor("#ffebeb");
     AlertView.setNegativeTextColor("#760000");
-    AlertView.onPositive()
-    AlertView.onNegative()
+    AlertView.onPositive(() => {
+      console.log('positive clicked')
+    })
+    AlertView.onNegative(() => {
+      console.log('negative clicked')
+    })
     
     AlertView.setTheme('light')
     AlertView.show()
@@ -51,6 +55,11 @@ export default class App extends Component<{}> {
     SheetView.addItem('Item 4', 'Item 4 Description')
 
     SheetView.setTheme('light')
+    SheetView.setSelection(3)
+
+    SheetView.onSelection(selection => {
+      console.log("selection: " + selection);
+    });
     SheetView.show()
   }
 
@@ -70,6 +79,9 @@ export default class App extends Component<{}> {
 
     GridView.setTheme('light')
 
+    GridView.onSelection((selection) => {
+      console.log('selection: ' + selection)
+    })
     GridView.show();
   }
 

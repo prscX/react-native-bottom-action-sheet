@@ -10,7 +10,7 @@
 RCT_EXPORT_MODULE()
 
 
-RCT_EXPORT_METHOD(AlertView:(NSDictionary *)props) {
+RCT_EXPORT_METHOD(AlertView:(NSDictionary *)props callback:(RCTResponseSenderBlock)callback) {
     NSString *title = [props objectForKey: @"title"];
     NSString *message = [props objectForKey: @"message"];
     NSString *theme = [props objectForKey: @"theme"];
@@ -28,18 +28,22 @@ RCT_EXPORT_METHOD(AlertView:(NSDictionary *)props) {
     } else {
         [[SGActionView sharedActionView] setStyle:SGActionViewStyleDark];
     }
-
+    
     [SGActionView showAlertWithTitle:title
          message:message
         leftButtonTitle:negativeText
          rightButtonTitle:positiveText
-      selectedHandle:nil];
+          selectedHandle:^(NSInteger index) {
+              callback(@[[NSNumber numberWithLong: index]]);
+          }
+     ];
 }
 
-RCT_EXPORT_METHOD(SheetView:(NSDictionary *)props) {
+RCT_EXPORT_METHOD(SheetView:(NSDictionary *)props callback:(RCTResponseSenderBlock)callback) {
     NSString *title = [props objectForKey: @"title"];
     NSArray *items = [props objectForKey: @"items"];
     NSString *theme = [props objectForKey: @"theme"];
+    NSNumber *selection = [props objectForKey: @"selection"];
     
     NSMutableArray *itemTitles = [[NSMutableArray alloc] init];
     NSMutableArray *itemSubTitles = [[NSMutableArray alloc] init];
@@ -58,12 +62,14 @@ RCT_EXPORT_METHOD(SheetView:(NSDictionary *)props) {
     [SGActionView showSheetWithTitle:title
          itemTitles:itemTitles
         itemSubTitles:itemSubTitles
-          selectedIndex: 0
-        selectedHandle:nil
+          selectedIndex: [selection intValue]
+          selectedHandle:^(NSInteger index) {
+              callback(@[[NSNumber numberWithLong: index]]);
+          }
      ];
 }
 
-RCT_EXPORT_METHOD(GridView:(NSDictionary *)props) {
+RCT_EXPORT_METHOD(GridView:(NSDictionary *)props callback:(RCTResponseSenderBlock)callback) {
     NSString *title = [props objectForKey: @"title"];
     NSArray *items = [props objectForKey: @"items"];
     NSString *theme = [props objectForKey: @"theme"];
@@ -103,9 +109,11 @@ RCT_EXPORT_METHOD(GridView:(NSDictionary *)props) {
     }
     
     [SGActionView showGridMenuWithTitle:title
-                          itemTitles:itemTitles
-                       images:itemIcons
-                      selectedHandle:nil
+          itemTitles:itemTitles
+       images:itemIcons
+         selectedHandle:^(NSInteger index) {
+             callback(@[[NSNumber numberWithLong: index]]);
+         }
      ];
 }
 

@@ -44,9 +44,13 @@ class AlertView {
     this.theme = theme;
   }
 
-  onPositive = () => {};
+  onPositive = (onPositive) => {
+      this.onPositive = onPositive
+  };
 
-  onNegative = () => {};
+  onNegative = (onNegative) => {
+      this.onNegative = onNegative
+  };
 
   show() {
     RNBottomActionSheet.AlertView({
@@ -59,6 +63,12 @@ class AlertView {
       negativeBackgroundColor: this.negativeBackgroundColor,
       negativeTextColor: this.negativeTextColor,
       theme: this.theme
+    }, (selection) => {
+        if (selection === 0) {
+            this.onNegative && this.onNegative()
+        } else if (selection === 1) {
+            this.onPositive && this.onPositive()
+        }
     });
   }
 }

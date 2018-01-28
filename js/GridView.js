@@ -22,11 +22,17 @@ class GridView {
     this.theme = theme
   }
 
+  onSelection = (onSelection) => {
+    this._onSelection = onSelection
+  }
+
   show() {
     RNBottomActionSheet.GridView({
       title: this.title,
       items: this.items,
       theme: this.theme
+    }, (selection) => {
+      this._onSelection && this._onSelection(selection)
     });
   }
 }

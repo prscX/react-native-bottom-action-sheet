@@ -6,7 +6,7 @@ const { RNBottomActionSheet } = NativeModules;
 class SheetView {
   constructor() {
     this.items = new Array();
-    this.theme = 'light'
+    this.theme = "light";
   }
 
   setTitle(title) {
@@ -25,11 +25,22 @@ class SheetView {
     this.theme = theme;
   }
 
+  setSelection (selection) {
+      this.selection = selection
+  }
+
+  onSelection = onSelection => {
+    this._onSelection = onSelection;
+  }
+
   show() {
     RNBottomActionSheet.SheetView({
       title: this.title,
       items: this.items,
-      theme: this.theme
+      theme: this.theme,
+      selection: this.selection
+    }, (selection) => {
+        this._onSelection && this._onSelection(selection)
     });
   }
 }
