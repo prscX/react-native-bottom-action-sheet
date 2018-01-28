@@ -104,7 +104,7 @@ let AlertView = RNBottomActionSheet.AlertView()
 	- `setTitle(title: string)`
 	- `addItem(title: string, subTitle: string, icon: image) - subTitle: iOS Only`
 	- `onSelection(selcFunc: function)`
-	- `show`
+	- `show()`
 	- `setTitleTextColor(color: string) - Android Only` 
 	- `setItemTextColor(color: string) - Android Only`
 	- `setItemTintColor(color: string) - Android Only`
@@ -118,7 +118,7 @@ let AlertView = RNBottomActionSheet.AlertView()
 	- `setTitle(title: string)`
 	- `addItem(title: string, icon: image)`
 	- `onSelection(selcFunc: function)`
-	- `show`
+	- `show()`
 	- `setItemTextColor(color: string) - Android Only`
 	- `setItemTintColor(color: string) - Android Only`
 	- `setBackgroundColor(color: string) - Android Only`
@@ -137,7 +137,7 @@ let AlertView = RNBottomActionSheet.AlertView()
 	- `onPositive(selcFunc: function)`
 	- `onNegative(selcFunc: function)`
 	- `setTheme(theme: string) - iOS Only`
-	- `show`
+	- `show()`
 
 ## TO DO
 - Enable Android customization features for iOS platform as well
