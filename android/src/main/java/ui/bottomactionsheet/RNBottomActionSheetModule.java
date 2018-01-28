@@ -88,7 +88,13 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
     ReadableArray items = props.getArray("items");
 
     String theme = props.getString("theme");
-    int selection = props.getInt("selection");
+
+    String titleTextColor = props.getString("titleTextColor");
+    String itemTextColor = props.getString("itemTextColor");
+    String itemTintColor = props.getString("itemTintColor");
+    String backgroundColor = props.getString("backgroundColor");
+    boolean delayDismissOnItemClick = props.getBoolean("delayDismissOnItemClick");
+
 
     BottomSheetBuilder bottomSheetBuilder = new BottomSheetBuilder(reactContext.getCurrentActivity(), R.style.Theme_Design_Light_BottomSheetDialog);
     bottomSheetBuilder.setMode(BottomSheetBuilder.MODE_LIST);
@@ -113,6 +119,23 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
       }
     }
 
+    if (titleTextColor != null && titleTextColor.length() > 0) {
+      bottomSheetBuilder.setTitleTextColor(Color.parseColor(titleTextColor));
+    }
+    if (itemTextColor != null && itemTextColor.length() > 0) {
+      bottomSheetBuilder.setItemTextColor(Color.parseColor(itemTextColor));
+    }
+    if (itemTintColor != null && itemTintColor.length() > 0) {
+      bottomSheetBuilder.setIconTintColor(Color.parseColor(itemTintColor));
+    }
+    if (backgroundColor != null && backgroundColor.length() > 0) {
+      bottomSheetBuilder.setBackgroundColor(Color.parseColor(backgroundColor));
+    }
+    if (delayDismissOnItemClick) {
+      bottomSheetBuilder.delayDismissOnItemClick(delayDismissOnItemClick);
+    }
+
+
     bottomSheetBuilder.setItemClickListener(new BottomSheetItemClickListener() {
       @Override
       public void onBottomSheetItemClick(MenuItem item) {
@@ -132,6 +155,11 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
 
     String theme = props.getString("theme");
 
+    String itemTextColor = props.getString("itemTextColor");
+    String itemTintColor = props.getString("itemTintColor");
+    String backgroundColor = props.getString("backgroundColor");
+    boolean delayDismissOnItemClick = props.getBoolean("delayDismissOnItemClick");
+
     BottomSheetBuilder bottomSheetBuilder = new BottomSheetBuilder(reactContext.getCurrentActivity(), R.style.Theme_Design_Light_BottomSheetDialog);
     bottomSheetBuilder.setMode(BottomSheetBuilder.MODE_GRID);
 
@@ -142,7 +170,21 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
       Drawable drawable = this.getIcon(icon);
       bottomSheetBuilder.addItem(index, item.getString("title"), drawable);
     }
-    
+
+
+    if (itemTextColor != null && itemTextColor.length() > 0) {
+      bottomSheetBuilder.setItemTextColor(Color.parseColor(itemTextColor));
+    }
+    if (itemTintColor != null && itemTintColor.length() > 0) {
+      bottomSheetBuilder.setIconTintColor(Color.parseColor(itemTintColor));
+    }
+    if (backgroundColor != null && backgroundColor.length() > 0) {
+      bottomSheetBuilder.setBackgroundColor(Color.parseColor(backgroundColor));
+    }
+    if (delayDismissOnItemClick) {
+      bottomSheetBuilder.delayDismissOnItemClick(delayDismissOnItemClick);
+    }
+
     bottomSheetBuilder.setItemClickListener(new BottomSheetItemClickListener() {
       @Override
       public void onBottomSheetItemClick(MenuItem item) {

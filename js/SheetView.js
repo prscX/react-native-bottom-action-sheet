@@ -8,10 +8,36 @@ class SheetView {
   constructor() {
     this.items = new Array();
     this.theme = "light";
+
+    this.titleTextColor = ''
+    this.itemTextColor = ''
+    this.itemTintColor = ''
+    this.backgroundColor = ''
+    this.delayDismissOnItemClick = false
   }
 
   setTitle(title) {
     this.title = title;
+  }
+
+  setTitleTextColor (titleTextColor) {
+    this.titleTextColor = titleTextColor
+  }
+
+  setItemTextColor (itemTextColor) {
+    this.itemTextColor = itemTextColor;
+  }
+
+  setItemTintColor (itemTintColor) {
+    this.itemTintColor = itemTintColor
+  }
+
+  setBackgroundColor (backgroundColor) {
+    this.backgroundColor = backgroundColor
+  }
+
+  setDelayDismissOnItemClick (delayDismissOnItemClick) {
+    this.delayDismissOnItemClick = delayDismissOnItemClick
   }
 
   addDividerItem (title) {
@@ -43,14 +69,22 @@ class SheetView {
   }
 
   show() {
-    RNBottomActionSheet.SheetView({
-      title: this.title,
-      items: this.items,
-      theme: this.theme,
-      selection: this.selection
-    }, (selection) => {
-        this._onSelection && this._onSelection(selection)
-    });
+    RNBottomActionSheet.SheetView(
+      {
+        title: this.title,
+        items: this.items,
+        theme: this.theme,
+        selection: this.selection,
+        titleTextColor: this.titleTextColor,
+        itemTextColor: this.itemTextColor,
+        itemTintColor: this.itemTintColor,
+        backgroundColor: this.backgroundColor,
+        delayDismissOnItemClick: this.delayDismissOnItemClick
+      },
+      selection => {
+        this._onSelection && this._onSelection(selection);
+      }
+    );
   }
 }
 

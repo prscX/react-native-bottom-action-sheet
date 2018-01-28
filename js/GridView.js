@@ -8,10 +8,31 @@ class GridView {
     this.items = new Array();
 
     this.theme = "light";
+
+    this.itemTextColor = "";
+    this.itemTintColor = "";
+    this.backgroundColor = "";
+    this.delayDismissOnItemClick = false;
   }
 
   setTitle(title) {
     this.title = title;
+  }
+
+  setItemTextColor(itemTextColor) {
+    this.itemTextColor = itemTextColor;
+  }
+
+  setItemTintColor(itemTintColor) {
+    this.itemTintColor = itemTintColor;
+  }
+
+  setBackgroundColor(backgroundColor) {
+    this.backgroundColor = backgroundColor;
+  }
+
+  setDelayDismissOnItemClick(delayDismissOnItemClick) {
+    this.delayDismissOnItemClick = delayDismissOnItemClick;
   }
 
   addItem(title, icon) {
@@ -35,7 +56,11 @@ class GridView {
       {
         title: this.title,
         items: this.items,
-        theme: this.theme
+        theme: this.theme,
+        itemTextColor: this.itemTextColor,
+        itemTintColor: this.itemTintColor,
+        backgroundColor: this.backgroundColor,
+        delayDismissOnItemClick: this.delayDismissOnItemClick
       },
       selection => {
         this._onSelection && this._onSelection(selection);
