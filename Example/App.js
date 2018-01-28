@@ -38,6 +38,7 @@ export default class App extends Component<{}> {
     AlertView.onPositive()
     AlertView.onNegative()
     
+    AlertView.setTheme('light')
     AlertView.show()
   }
 
@@ -49,6 +50,7 @@ export default class App extends Component<{}> {
     SheetView.addItem('Item 3', 'Item 3 Description')
     SheetView.addItem('Item 4', 'Item 4 Description')
 
+    SheetView.setTheme('light')
     SheetView.show()
   }
 
@@ -65,6 +67,8 @@ export default class App extends Component<{}> {
     GridView.addItem("YouTube", youtube);
     GridView.addItem("Google", google);
     GridView.addItem("LinkedIn", linkedin);
+
+    GridView.setTheme('light')
 
     GridView.show();
   }

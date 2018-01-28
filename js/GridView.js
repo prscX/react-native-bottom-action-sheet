@@ -6,6 +6,8 @@ const { RNBottomActionSheet } = NativeModules;
 class GridView {
   constructor() {
     this.items = new Array();
+
+    this.theme = 'light'
   }
 
   setTitle(title) {
@@ -16,10 +18,15 @@ class GridView {
     this.items.push({ title: title, icon: resolveAssetSource(icon) });
   }
 
+  setTheme(theme) {
+    this.theme = theme
+  }
+
   show() {
     RNBottomActionSheet.GridView({
       title: this.title,
-      items: this.items
+      items: this.items,
+      theme: this.theme
     });
   }
 }

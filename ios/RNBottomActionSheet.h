@@ -6,6 +6,7 @@
 #endif
 
 #import "SGActionView.h"
+#import "SGBaseMenu.h"
 
 @interface RNBottomActionSheet : NSObject <RCTBridgeModule>
 

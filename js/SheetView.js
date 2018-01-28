@@ -4,28 +4,34 @@ const { RNBottomActionSheet } = NativeModules;
 
 
 class SheetView {
-    constructor () {
-        this.items = new Array()
-    }
-    
-    setTitle (title) {
-        this.title = title
-    }
+  constructor() {
+    this.items = new Array();
+    this.theme = 'light'
+  }
 
-    addItem (title, subTitle, icon) {
-        this.items.push({
-            title: title,
-            subTitle: subTitle,
-            icon: icon
-        })
-    }
+  setTitle(title) {
+    this.title = title;
+  }
 
-    show () {
-        RNBottomActionSheet.SheetView({
-            title: this.title,
-            items: this.items
-        })
-    }
+  addItem(title, subTitle, icon) {
+    this.items.push({
+      title: title,
+      subTitle: subTitle,
+      icon: icon
+    });
+  }
+
+  setTheme(theme) {
+    this.theme = theme;
+  }
+
+  show() {
+    RNBottomActionSheet.SheetView({
+      title: this.title,
+      items: this.items,
+      theme: this.theme
+    });
+  }
 }
 
 export { SheetView };

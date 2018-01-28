@@ -13,6 +13,7 @@ RCT_EXPORT_MODULE()
 RCT_EXPORT_METHOD(AlertView:(NSDictionary *)props) {
     NSString *title = [props objectForKey: @"title"];
     NSString *message = [props objectForKey: @"message"];
+    NSString *theme = [props objectForKey: @"theme"];
     
     NSString *positiveText = [props objectForKey: @"positiveText"];
     NSString *positiveBackgroundColor = [props objectForKey: @"positiveBackgroundColor"];
@@ -21,7 +22,13 @@ RCT_EXPORT_METHOD(AlertView:(NSDictionary *)props) {
     NSString *negativeText = [props objectForKey: @"negativeText"];
     NSString *negativeBackgroundColor = [props objectForKey: @"negativeBackgroundColor"];
     NSString *negativeTextColor = [props objectForKey: @"negativeTextColor"];
-    
+
+    if ([theme isEqualToString: @"light"]) {
+        [[SGActionView sharedActionView] setStyle:SGActionViewStyleLight];
+    } else {
+        [[SGActionView sharedActionView] setStyle:SGActionViewStyleDark];
+    }
+
     [SGActionView showAlertWithTitle:title
          message:message
         leftButtonTitle:negativeText
@@ -32,6 +39,7 @@ RCT_EXPORT_METHOD(AlertView:(NSDictionary *)props) {
 RCT_EXPORT_METHOD(SheetView:(NSDictionary *)props) {
     NSString *title = [props objectForKey: @"title"];
     NSArray *items = [props objectForKey: @"items"];
+    NSString *theme = [props objectForKey: @"theme"];
     
     NSMutableArray *itemTitles = [[NSMutableArray alloc] init];
     NSMutableArray *itemSubTitles = [[NSMutableArray alloc] init];
@@ -40,7 +48,13 @@ RCT_EXPORT_METHOD(SheetView:(NSDictionary *)props) {
         [itemTitles addObject: [item objectForKey: @"title"]];
         [itemSubTitles addObject: [item objectForKey: @"subTitle"]];
     }
-    
+
+    if ([theme isEqualToString: @"light"]) {
+        [[SGActionView sharedActionView] setStyle:SGActionViewStyleLight];
+    } else {
+        [[SGActionView sharedActionView] setStyle:SGActionViewStyleDark];
+    }
+
     [SGActionView showSheetWithTitle:title
          itemTitles:itemTitles
         itemSubTitles:itemSubTitles
@@ -52,10 +66,12 @@ RCT_EXPORT_METHOD(SheetView:(NSDictionary *)props) {
 RCT_EXPORT_METHOD(GridView:(NSDictionary *)props) {
     NSString *title = [props objectForKey: @"title"];
     NSArray *items = [props objectForKey: @"items"];
-
+    NSString *theme = [props objectForKey: @"theme"];
+    
     NSMutableArray *itemTitles = [[NSMutableArray alloc] init];
     NSMutableArray *itemIcons = [[NSMutableArray alloc] init];
 
+    
     for (NSDictionary *item in items) {
         [itemTitles addObject: [item objectForKey: @"title"]];
 
@@ -80,6 +96,12 @@ RCT_EXPORT_METHOD(GridView:(NSDictionary *)props) {
         [itemIcons addObject: image];
     }
 
+    if ([theme isEqualToString: @"light"]) {
+        [[SGActionView sharedActionView] setStyle:SGActionViewStyleLight];
+    } else {
+        [[SGActionView sharedActionView] setStyle:SGActionViewStyleDark];
+    }
+    
     [SGActionView showGridMenuWithTitle:title
                           itemTitles:itemTitles
                        images:itemIcons
