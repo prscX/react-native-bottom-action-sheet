@@ -1,53 +1,102 @@
 
-# react-native-bottom-action-sheet
+# React Native: Bottom Action Sheet (Android/iOS)
 
-## Getting started
+A simple library that creates BottomSheets according to the [Material Design Specs](https://material.google.com/components/bottom-sheets.html) 
+## Android
 
-`$ npm install react-native-bottom-action-sheet --save`
+- **Sheet View**
 
-### Mostly automatic installation
+![](https://github.com/rubensousa/BottomSheetBuilder/raw/master/screens/normal_demo.gif)
 
-`$ react-native link react-native-bottom-action-sheet`
+- **Grid View**
 
-### Manual installation
+![](https://github.com/rubensousa/BottomSheetBuilder/raw/master/screens/tablet_grid.png)
 
+- **Alert View**
+
+![](https://raw.githubusercontent.com/javiersantos/BottomDialogs/master/Screenshots/gif-1.gif)
 
 #### iOS
 
-1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
-2. Go to `node_modules` ➜ `react-native-bottom-action-sheet` and add `RNBottomActionSheet.xcodeproj`
-3. In XCode, in the project navigator, select your project. Add `libRNBottomActionSheet.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
-4. Run your project (`Cmd+R`)<
+- **Sheet View**
 
-#### Android
+![](https://github.com/sagiwei/SGActionView/raw/master/sheet.png)
 
-1. Open up `android/app/src/main/java/[...]/MainActivity.java`
-  - Add `import com.reactlibrary.RNBottomActionSheetPackage;` to the imports at the top of the file
-  - Add `new RNBottomActionSheetPackage()` to the list returned by the `getPackages()` method
-2. Append the following lines to `android/settings.gradle`:
-  	```
-  	include ':react-native-bottom-action-sheet'
-  	project(':react-native-bottom-action-sheet').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-bottom-action-sheet/android')
-  	```
-3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
-  	```
-      compile project(':react-native-bottom-action-sheet')
-  	```
+- **Grid View**
 
-#### Windows
-[Read it! :D](https://github.com/ReactWindows/react-native)
+![](https://github.com/sagiwei/SGActionView/raw/master/grid.png)
 
-1. In Visual Studio add the `RNBottomActionSheet.sln` in `node_modules/react-native-bottom-action-sheet/windows/RNBottomActionSheet.sln` folder to their solution, reference from their app.
-2. Open up your `MainPage.cs` app
-  - Add `using Bottom.Action.Sheet.RNBottomActionSheet;` to the usings at the top of the file
-  - Add `new RNBottomActionSheetPackage()` to the `List<IReactPackage>` returned by the `Packages` method
+- **Alert View**
+
+![](https://github.com/sagiwei/SGActionView/raw/master/alert.png)
+
+It is a React Native Bridge around below native Android & iOS Libraries
+
+- [rubensousa/BottomSheetBuilder](https://github.com/rubensousa/BottomSheetBuilder)
+- [javiersantos/BottomDialogs](https://github.com/javiersantos/BottomDialogs)
+- [sagiwei/SGActionView](https://github.com/sagiwei/SGActionView)
+
+Before we dive into on how to use this library. We would like to thank all the contributor of above libraries for providing such a awesome nice, cool library
+
+## Getting started
+
+- `$ npm install react-native-bottom-action-sheet --save`
+
+- `$ react-native link react-native-bottom-action-sheet`
 
 
 ## Usage
 ```javascript
 import RNBottomActionSheet from 'react-native-bottom-action-sheet';
 
-// TODO: What to do with the module?
-RNBottomActionSheet;
+
 ```
-  
+
+## Credits
+
+- Android BottomSheetBuilder: [rubensousa/BottomSheetBuilder](https://github.com/rubensousa/BottomSheetBuilder)
+- Android BottomDialogs: [javiersantos/BottomDialogs](https://github.com/javiersantos/BottomDialogs)
+- iOS BottomSheet: [sagiwei/SGActionView](https://github.com/sagiwei/SGActionView)
+
+## Contribution
+Contributions are welcome and are greatly appreciated! Every little bit helps, and credit will always be given.
+
+## License
+Copyright Pranav Raj Singh Chauhan
+
+RNBottomActionSheet is provided under the MIT License.
+
+
+
+## Other Contributions
+- React Native - Spruce: [react-native-spruce](https://github.com/prscX/react-native-spruce)
+
+![Screenshots](https://github.com/willowtreeapps/spruce-ios/raw/master/imgs/extensibility-tests.gif)
+
+- React Native - App Tour Library: [react-native-taptargetview](https://github.com/prscX/react-native-taptargetview) & [react-native-material-showcase-ios](https://github.com/prscX/react-native-material-showcase-ios)
+
+![Screenshots](https://github.com/KeepSafe/TapTargetView/raw/master/.github/video.gif)
+![Screenshots](https://github.com/aromajoin/material-showcase-ios/raw/master/art/material-showcase.gif?raw=true)
+
+- React Native - Shine Button: [react-native-shine-button](https://github.com/prscX/react-native-shine-button)
+
+![Screenshots](https://raw.githubusercontent.com/ChadCSong/ShineButton/master/demo_shine_others.gif)
+
+- React Native Iconic: [react-native-iconic](https://github.com/prscX/react-native-iconic)
+![Screenshots](https://camo.githubusercontent.com/b18993cbfe91de8abdc0019dc9a6cd44707eec21/68747470733a2f2f6431337961637572716a676172612e636c6f756466726f6e742e6e65742f75736572732f3338313133332f73637265656e73686f74732f313639363538302f766266706f70666c6174627574746f6e332e676966)
+
+- React Native Download Button: [react-native-download-button](https://github.com/prscX/react-native-download-button)
+
+![](https://github.com/fenjuly/ArrowDownloadButton/raw/master/screenshots/arrowdownloadbutton.gif)
+
+- React Native Siri Wave View: [react-native-siri-wave-view](https://github.com/prscX/react-native-siri-wave-view)
+
+![](https://cdn.dribbble.com/users/341264/screenshots/2203511/wave.gif)
+
+- Visual Code Essential Plugins: [vs-essential-plugins](https://github.com/prscX/vs-essential-plugins)
+
+![Screenshots](https://pbs.twimg.com/profile_images/922911523328081920/jEKFRPKV_400x400.jpg)
+
+- Prettier Pack: [prettier-pack](https://github.com/prscX/prettier-pack)
+
+![Screenshots](https://raw.githubusercontent.com/prettier/prettier-logo/master/images/prettier-banner-light.png)
