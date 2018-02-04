@@ -168,6 +168,10 @@ RNBottomActionSheet is provided under the MIT License.
 ![Screenshots](https://github.com/KeepSafe/TapTargetView/raw/master/.github/video.gif)
 ![Screenshots](https://github.com/aromajoin/material-showcase-ios/raw/master/art/material-showcase.gif?raw=true)
 
+- React Native - Popover: [react-native-popover-menu](https://github.com/prscX/react-native-popover-menu)
+
+![](https://github.com/zawadz88/MaterialPopupMenu/raw/master/art/components_menus.png)
+
 - React Native - Shine Button: [react-native-shine-button](https://github.com/prscX/react-native-shine-button)
 
 ![Screenshots](https://raw.githubusercontent.com/ChadCSong/ShineButton/master/demo_shine_others.gif)
