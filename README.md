@@ -158,6 +158,7 @@ RNBottomActionSheet is provided under the MIT License.
 
 
 
+
 ## Other Contributions
 - React Native - Spruce: [react-native-spruce](https://github.com/prscX/react-native-spruce)
 
@@ -168,9 +169,14 @@ RNBottomActionSheet is provided under the MIT License.
 ![Screenshots](https://github.com/KeepSafe/TapTargetView/raw/master/.github/video.gif)
 ![Screenshots](https://github.com/aromajoin/material-showcase-ios/raw/master/art/material-showcase.gif?raw=true)
 
+
 - React Native - Popover: [react-native-popover-menu](https://github.com/prscX/react-native-popover-menu)
 
 ![](https://github.com/zawadz88/MaterialPopupMenu/raw/master/art/components_menus.png)
+
+- React Native - Tooltips: [react-native-tooltips](https://github.com/prscX/react-native-tooltips)
+
+![](https://camo.githubusercontent.com/add1764d27026b81adb117e07a10781c9abbde1b/687474703a2f2f692e696d6775722e636f6d2f4f4e383257526c2e676966)
 
 - React Native - Shine Button: [react-native-shine-button](https://github.com/prscX/react-native-shine-button)
 
@@ -187,6 +193,24 @@ RNBottomActionSheet is provided under the MIT License.
 
 ![](https://cdn.dribbble.com/users/341264/screenshots/2203511/wave.gif)
 
+- React Native Material Shadows: [react-native-material-shadows](https://github.com/prscX/react-native-material-shadows)
+
+![](
+https://raw.githubusercontent.com/harjot-oberai/MaterialShadows/master/screens/cover.png
+)
+
+- React Native Gradient Blur View: [react-native-gradient-blur-view](https://github.com/prscX/react-native-gradient-blur-view)
+
+![](
+https://github.com/prscX/react-native-gradient-blur-view/raw/master/assets/hero.png
+)
+
+- React Native About Libraries: [react-native-about-libraries](https://github.com/prscX/react-native-about-libraries)
+
+![](
+https://github.com/prscX/react-native-about-libraries/raw/master/hero.png
+)
+
 - Visual Code Essential Plugins: [vs-essential-plugins](https://github.com/prscX/vs-essential-plugins)
 
 ![Screenshots](https://pbs.twimg.com/profile_images/922911523328081920/jEKFRPKV_400x400.jpg)
@@ -194,3 +218,5 @@ RNBottomActionSheet is provided under the MIT License.
 - Prettier Pack: [prettier-pack](https://github.com/prscX/prettier-pack)
 
 ![Screenshots](https://raw.githubusercontent.com/prettier/prettier-logo/master/images/prettier-banner-light.png)
+
+
