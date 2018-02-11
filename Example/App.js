@@ -25,77 +25,110 @@ let linkedin = require("./assets/linkedin.png");
 let google = require("./assets/google.png");
 
 export default class App extends Component<{}> {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      alterView: false,
+      sheetView: false,
+      gridView: false
+    }
+  }
+
   _showAlertView = () => {
     let AlertView = RNBottomActionSheet.AlertView()
-    AlertView.setTitle("Awesome!");
-    AlertView.setMessage("What can we improve? Your feedback is always welcome.");
-    AlertView.setPositiveText("OK");
-    AlertView.setPositiveBackgroundColor("#eeffee");
-    AlertView.setPositiveTextColor("#006500");
-    AlertView.setNegativeText("Exit");
-    AlertView.setNegativeBackgroundColor("#ffebeb");
-    AlertView.setNegativeTextColor("#760000");
-    AlertView.onPositive(() => {
-      console.log('positive clicked')
+    AlertView.Show({
+      title: "Awesome!",
+      message: "What can we improve? Your feedback is always welcome.",
+      positiveText: "OK",
+      positiveBackgroundColor: "#eeffee",
+      positiveTextColor: "#006500",
+      negativeText: "Exit",
+      negativeBackgroundColor: "#ffebeb",
+      negativeTextColor: "#760000",
+      theme: 'light',
+      onPositive: () => {
+        console.log('positive clicked')
+      },
+      onNegative: () => {
+        console.log('negative clicked')
+      }
     })
-    AlertView.onNegative(() => {
-      console.log('negative clicked')
-    })
-    
-    AlertView.setTheme('light')
-    AlertView.show()
   }
 
   _showSheetView = () => {
     let SheetView = RNBottomActionSheet.SheetView()
-    SheetView.setTitle("Awesome!")
-    SheetView.addItem('Facebook', 'Facebook App', facebook)
-    SheetView.addItem('Instagram', 'Instagram App', instagram)
-    SheetView.addItem('Skype', 'Skype App', skype)
-
-    // SheetView.addDividerItem("Items");
-    SheetView.addItem('Twitter', 'Twitter App', twitter)
-    SheetView.addItem("WhatsApp", "WhatsApp App", whatsapp);
-    SheetView.addItem("YouTube", "YouTube App", youtube);
-    SheetView.addItem("Google", "Google App", google);
-    SheetView.addItem("LinkedIn", "LinkedIN App", linkedin);
-
-    SheetView.setTheme('light')
-    SheetView.setSelection(3)
-
-    SheetView.onSelection(selection => {
-      console.log("selection: " + selection);
+    SheetView.Show({
+      title: "Awesome!",
+      items: [
+        { title: "Facebook", subTitle: "Facebook Description", icon: facebook },
+        { title: "Instagram", subTitle: "Instagram Description", icon: instagram },
+        { title: "Skype", subTitle: "Skype Description", icon: skype },
+        { title: "Twitter", subTitle: "Twitter Description", icon: twitter, divider: true },
+        { title: "WhatsApp", subTitle: "WhatsApp Description", icon: whatsapp },
+        { title: "YouTube", subTitle: "YouTube Description", icon: youtube },
+        { title: "Google", subTitle: "Google Description", icon: google },
+        { title: "LinkedIn", subTitle: "LinkedIn Description", icon: linkedin }
+      ],
+      theme: "light",
+      selection: 3,
+      onSelection: selection => {
+        console.log("selection: " + selection);
+      }
     });
-    SheetView.show()
   }
 
   _showGridView = () => {
     let GridView = RNBottomActionSheet.GridView();
-    GridView.setTitle("Awesome!");
-    GridView.addItem("Facebook", facebook);
-    GridView.addItem("Instagram", instagram);
-    GridView.addItem("Skype", skype);
-    GridView.addItem("Twitter", twitter);
-    GridView.addItem("WhatsApp", whatsapp);
-    GridView.addItem("YouTube", youtube);
-    GridView.addItem("Google", google);
-    GridView.addItem("LinkedIn", linkedin);
-
-    GridView.setTheme('light')
-
-    GridView.onSelection((selection) => {
-      console.log('selection: ' + selection)
-    })
-    GridView.show();
+    GridView.Show({
+      title: "Awesome!",
+      items: [
+        { title: "Facebook", icon: facebook },
+        { title: "Instagram", icon: instagram },
+        { title: "Skype", icon: skype },
+        { title: "Twitter", icon: twitter },
+        { title: "WhatsApp", icon: whatsapp },
+        { title: "YouTube", icon: youtube },
+        { title: "Google", icon: google },
+        { title: "LinkedIn", icon: linkedin }
+      ],
+      theme: 'light',
+      onSelection: (selection) => {
+        console.log('selection: ' + selection)
+      }
+    });
   }
 
   render() {
     return <View style={styles.container}>
         <TouchableHighlight onPress={() => {
-            this._showAlertView();
+            // this._showAlertView();
+            this.setState({
+              alterView: true,
+              sheetView: false,
+              gridView: false
+            });
           }}>
           <Text>{"Alert View"}</Text>
         </TouchableHighlight>
+        <RNBottomActionSheet.AlertView
+          visible={this.state.alterViewVisible}
+          title={"Awesome!"}
+          message={"What can we improve? Your feedback is always welcome."}
+          positiveText={"OK"}
+          positiveBackgroundColor={"#eeffee"}
+          positiveTextColor={"#006500"}
+          negativeText={"Exit"}
+          negativeBackgroundColor={"#ffebeb"}
+          negativeTextColor={"#760000"}
+          theme={'light'}
+          onPositive={() => {
+            console.log('positive clicked')
+          }}
+          onNegative={() => {
+            console.log('negative clicked')
+          }}
+        />
         <TouchableHighlight onPress={() => {
             this._showSheetView();
           }}>

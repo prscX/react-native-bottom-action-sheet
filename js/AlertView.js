@@ -1,80 +1,110 @@
+import React, { Component } from "react";
+import { ViewPropTypes, NativeModules } from "react-native";
+import PropTypes from "prop-types";
 
-import { NativeModules } from "react-native";
 
 const { RNBottomActionSheet } = NativeModules;
 
-class AlertView {
-  constructor() {
-      this.theme = 'light'
-      this.positiveText = 'OK'
-      this.positiveBackgroundColor = "#3f51b5"
-      this.positiveTextColor = '#FFFFFF'
-      this.negativeTextColor = "#3f51b5"
-  }
+class AlertView extends Component {
+  static Show(props) {
+    if (props.title === undefined) props.title = AlertView.defaultProps.title;
+    if (props.message === undefined)
+      props.message = AlertView.defaultProps.message;
+    if (props.positiveText === undefined)
+      props.positiveText = AlertView.defaultProps.positiveText;
+    if (props.positiveBackgroundColor === undefined)
+      props.positiveBackgroundColor =
+        AlertView.defaultProps.positiveBackgroundColor;
+    if (props.positiveTextColor === undefined)
+      props.positiveTextColor = AlertView.defaultProps.positiveTextColor;
+    if (props.negativeText === undefined)
+      props.negativeText = AlertView.defaultProps.negativeText;
+    if (props.negativeBackgroundColor === undefined)
+      props.negativeBackgroundColor =
+        AlertView.defaultProps.negativeBackgroundColor;
+    if (props.negativeTextColor === undefined)
+      props.negativeTextColor = AlertView.defaultProps.negativeTextColor;
 
-  setTitle(title) {
-    this.title = title;
-  }
-
-  setMessage(message) {
-    this.message = message;
-  }
-
-  setPositiveText(positiveText) {
-    this.positiveText = positiveText;
-  }
-
-  setPositiveBackgroundColor(positiveBackgroundColor) {
-    this.positiveBackgroundColor = positiveBackgroundColor;
-  }
-
-  setPositiveTextColor(positiveTextColor) {
-    this.positiveTextColor = positiveTextColor;
-  }
-
-  setNegativeText(negativeText) {
-    this.negativeText = negativeText;
-  }
-
-  setNegativeBackgroundColor(negativeBackgroundColor) {
-    this.negativeBackgroundColor = negativeBackgroundColor;
-  }
-
-  setNegativeTextColor(negativeTextColor) {
-    this.negativeTextColor = negativeTextColor;
-  }
-
-  setTheme(theme) {
-    this.theme = theme;
-  }
-
-  onPositive = (onPositive) => {
-      this.onPositive = onPositive
-  };
-
-  onNegative = (onNegative) => {
-      this.onNegative = onNegative
-  };
-
-  show() {
-    RNBottomActionSheet.AlertView({
-      title: this.title,
-      message: this.message,
-      positiveText: this.positiveText,
-      positiveBackgroundColor: this.positiveBackgroundColor,
-      positiveTextColor: this.positiveTextColor,
-      negativeText: this.negativeText,
-      negativeBackgroundColor: this.negativeBackgroundColor,
-      negativeTextColor: this.negativeTextColor,
-      theme: this.theme
-    }, (selection) => {
+    RNBottomActionSheet.AlertView(
+      {
+        title: props.title,
+        message: props.message,
+        positiveText: props.positiveText,
+        positiveBackgroundColor: props.positiveBackgroundColor,
+        positiveTextColor: props.positiveTextColor,
+        negativeText: props.negativeText,
+        negativeBackgroundColor: props.negativeBackgroundColor,
+        negativeTextColor: props.negativeTextColor,
+        theme: props.theme
+      },
+      selection => {
         if (selection === 1) {
-            this.onPositive && this.onPositive()
+          props.onPositive && props.onPositive();
         } else if (selection === 0) {
-            this.onNegative && this.onNegative();
+          props.onNegative && props.onNegative();
         }
-    });
+      }
+    );
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (is(this.props, nextProps)) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  componentDidMount() {
+    this._show();
+  }
+
+  componentDidUpdate() {
+    this._show();
+  }
+
+  _show() {
+    if (this.props.visible) {
+      AlertView.Show(...props)
+    }
+  }
+
+  render() {
+    return null;
   }
 }
+
+
+AlertView.propTypes = {
+  ...ViewPropTypes,
+
+  title: PropTypes.string,
+  message: PropTypes.string,
+  positiveText: PropTypes.string,
+  positiveBackgroundColor: PropTypes.string,
+  positiveTextColor: PropTypes.string,
+  negativeText: PropTypes.string,
+  negativeBackgroundColor: PropTypes.string,
+  negativeTextColor: PropTypes.string,
+  theme: PropTypes.string,
+
+  onPositive: PropTypes.func,
+  onNegative: PropTypes.func,
+
+  visible: PropTypes.bool
+};
+
+AlertView.defaultProps = {
+  title: "",
+  message: "",
+  positiveText: "OK",
+  positiveBackgroundColor: "#3f51b5",
+  positiveTextColor: "@FFFFFF",
+  negativeText: "",
+  negativeBackgroundColor: "",
+  negativeTextColor: "@3f51b5",
+  theme: "light",
+  visible: false
+};
 
 export { AlertView }

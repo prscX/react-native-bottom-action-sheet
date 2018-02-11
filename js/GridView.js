@@ -1,72 +1,73 @@
-import { NativeModules } from "react-native";
+import React, { Component } from "react";
+import { ViewPropTypes, NativeModules } from "react-native";
+import PropTypes from "prop-types";
 import resolveAssetSource from "react-native/Libraries/Image/resolveAssetSource";
 
 const { RNBottomActionSheet } = NativeModules;
 
-class GridView {
-  constructor() {
-    this.items = new Array();
+class GridView extends Component {
+  static Show(props) {
+    if (props.title === undefined) props.title = GridView.defaultProps.title;
+    if (props.items === undefined) props.items = GridView.defaultProps.items;
+    if (props.theme === undefined) props.theme = GridView.defaultProps.theme;
+    if (props.itemTextColor === undefined)
+      props.itemTextColor = GridView.defaultProps.itemTextColor;
+    if (props.itemTintColor === undefined)
+      props.itemTintColor = GridView.defaultProps.itemTintColor;
+    if (props.backgroundColor === undefined)
+      props.backgroundColor = GridView.defaultProps.backgroundColor;
+    if (props.delayDismissOnItemClick === undefined)
+      props.delayDismissOnItemClick =
+        GridView.defaultProps.delayDismissOnItemClick;
 
-    this.theme = "light";
+    props.items = props.items.map(element => {
+      if (element.icon) element.icon = resolveAssetSource(element.icon);
+      element.divider = false;
 
-    this.itemTextColor = "";
-    this.itemTintColor = "";
-    this.backgroundColor = "";
-    this.delayDismissOnItemClick = false;
-  }
-
-  setTitle(title) {
-    this.title = title;
-  }
-
-  setItemTextColor(itemTextColor) {
-    this.itemTextColor = itemTextColor;
-  }
-
-  setItemTintColor(itemTintColor) {
-    this.itemTintColor = itemTintColor;
-  }
-
-  setBackgroundColor(backgroundColor) {
-    this.backgroundColor = backgroundColor;
-  }
-
-  setDelayDismissOnItemClick(delayDismissOnItemClick) {
-    this.delayDismissOnItemClick = delayDismissOnItemClick;
-  }
-
-  addItem(title, icon) {
-    this.items.push({
-      title: title,
-      icon: icon && resolveAssetSource(icon),
-      divider: false
+      return element;
     });
-  }
 
-  setTheme(theme) {
-    this.theme = theme;
-  }
-
-  onSelection = onSelection => {
-    this._onSelection = onSelection;
-  };
-
-  show() {
     RNBottomActionSheet.GridView(
       {
-        title: this.title,
-        items: this.items,
-        theme: this.theme,
-        itemTextColor: this.itemTextColor,
-        itemTintColor: this.itemTintColor,
-        backgroundColor: this.backgroundColor,
-        delayDismissOnItemClick: this.delayDismissOnItemClick
+        title: props.title,
+        items: props.items,
+        theme: props.theme,
+        itemTextColor: props.itemTextColor,
+        itemTintColor: props.itemTintColor,
+        backgroundColor: props.backgroundColor,
+        delayDismissOnItemClick: props.delayDismissOnItemClick
       },
       selection => {
-        this._onSelection && this._onSelection(selection);
+        props._onSelection && props._onSelection(selection);
       }
     );
   }
 }
+
+
+GridView.propTypes = {
+  ...ViewPropTypes,
+
+  title: PropTypes.string,
+  items: PropTypes.array,
+  theme: PropTypes.string,
+  itemTextColor: PropTypes.string,
+  itemTintColor: PropTypes.string,
+  backgroundColor: PropTypes.string,
+  delayDismissOnItemClick: PropTypes.func,
+  onSelection: PropTypes.func,
+  visible: PropTypes.bool
+};
+
+GridView.defaultProps = {
+  title: '',
+  items: new Array(),
+  theme: "light",
+  itemTextColor: "",
+  itemTintColor: "",
+  backgroundColor: "",
+  delayDismissOnItemClick: false,
+  visible: false
+};
 
 export { GridView };

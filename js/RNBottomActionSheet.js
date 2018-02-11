@@ -5,17 +5,10 @@ import { SheetView } from './SheetView'
 
 class RNBottomActionSheet {
 
-    static AlertView = () => {
-        return new AlertView()
-    }
-
-    static GridView = () => {
-        return new GridView()
-    }
-
-    static SheetView = () => {
-        return new SheetView()
-    }
 }
+
+RNBottomActionSheet.AlertView = AlertView
+RNBottomActionSheet.GridView = GridView;
+RNBottomActionSheet.SheetView = SheetView;
 
 export default RNBottomActionSheet;
