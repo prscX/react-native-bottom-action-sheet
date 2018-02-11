@@ -53,91 +53,139 @@ import RNBottomActionSheet from 'react-native-bottom-action-sheet';
 
 - **Sheet View**
 ```javascript
-let SheetView = RNBottomActionSheet.SheetView()
-    SheetView.setTitle("Awesome!")
-    SheetView.addItem('Facebook', 'Facebook App', facebook)
 
-    SheetView.addDividerItem("Items");
-    SheetView.addItem("LinkedIn", "LinkedIN App", linkedin);
+- API Way
+let SheetView = RNBottomActionSheet.SheetView
+SheetView.Show({
+	title: "Awesome!",
+	items: [
+		{ title: "Facebook", subTitle: "Facebook Description", icon: facebook },
+		{ title: "Instagram", subTitle: "Instagram Description", icon: instagram },
+	],
+	theme: "light",
+	selection: 3,
+	onSelection: selection => {
+		console.log("selection: " + selection);
+	}
+});
 
-    SheetView.setTheme('light')
-    SheetView.setSelection(3)
+- React Way
 
-    SheetView.onSelection(selection => {});
-    SheetView.show()
+<RNBottomActionSheet.SheetView visible={this.state.sheetView} title={"Awesome!"} theme={"light"} onSelection={selection => {
+	console.log("selection: " + selection);
+}}>
+	<RNBottomActionSheet.SheetView.Item title={"Facebook"} subTitle={"Facebook Description"} icon={facebook} />
+	<RNBottomActionSheet.SheetView.Item title={"Instagram"} subTitle={"Instagram Description"} icon={instagram} />
+</RNBottomActionSheet.SheetView>
+
 ```
 
 - **Grid View**
 ```javascript
-let GridView = RNBottomActionSheet.GridView();
-    GridView.setTitle("Awesome!");
-    GridView.addItem("Facebook", facebook);
-    GridView.addItem("LinkedIn", linkedin);
 
-    GridView.setTheme('light')
+- API Way
+let GridView = RNBottomActionSheet.GridView
+	GridView.Show({
+		title: "Awesome!",
+		items: [
+		{ title: "Facebook", icon: facebook },
+		{ title: "Instagram", icon: instagram },
+		{ title: "Skype", icon: skype },
+		{ title: "Twitter", icon: twitter },
+		{ title: "WhatsApp", icon: whatsapp },
+		{ title: "YouTube", icon: youtube },
+		{ title: "Google", icon: google },
+		{ title: "LinkedIn", icon: linkedin }
+		],
+		theme: 'light',
+		onSelection: (selection) => {
+		console.log('selection: ' + selection)
+		}
+	});
 
-    GridView.onSelection((selection) => {})
-    GridView.show();
+- React Way
+<RNBottomActionSheet.GridView visible={this.state.gridView} title={"Awesome!"} theme={"light"} selection={3} onSelection={selection => {
+	console.log("selection: " + selection);
+	}}>
+	<RNBottomActionSheet.GridView.Item title={"Facebook"} icon={facebook} />
+	<RNBottomActionSheet.GridView.Item title={"Instagram"} icon={instagram} />
+</RNBottomActionSheet.GridView>
+
 ```
 
 - **Alert View**
 ```javascript
-let AlertView = RNBottomActionSheet.AlertView()
-    AlertView.setTitle("Awesome!");
-    AlertView.setMessage("What can we improve? Your feedback is always welcome.");
-    AlertView.setPositiveText("OK");
-    AlertView.setPositiveBackgroundColor("#eeffee");
-    AlertView.setPositiveTextColor("#006500");
-    AlertView.setNegativeText("Exit");
-    AlertView.setNegativeBackgroundColor("#ffebeb");
-    AlertView.setNegativeTextColor("#760000");
-    AlertView.onPositive(() => {})
-    AlertView.onNegative(() => {})
-    
-    AlertView.setTheme('light')
-    AlertView.show()
+
+- API Way
+let AlertView = RNBottomActionSheet.AlertView
+    AlertView.Show({
+      title: "Awesome!",
+      message: "What can we improve? Your feedback is always welcome.",
+      positiveText: "OK",
+      positiveBackgroundColor: "#eeffee",
+      positiveTextColor: "#006500",
+      negativeText: "Exit",
+      negativeBackgroundColor: "#ffebeb",
+      negativeTextColor: "#760000",
+      theme: 'light',
+      onPositive: () => {
+        console.log('positive clicked')
+      },
+      onNegative: () => {
+        console.log('negative clicked')
+      }
+	})
+	
+- React Way
+<RNBottomActionSheet.AlertView visible={this.state.alterView} title={"Awesome!"} message={"What can we improve? Your feedback is always welcome."} positiveText={"OK"} positiveBackgroundColor={"#eeffee"} positiveTextColor={"#006500"} negativeText={"Exit"} negativeBackgroundColor={"#ffebeb"} negativeTextColor={"#760000"} theme={"light"} onPositive={() => {
+	console.log("positive clicked");
+	}} onNegative={() => {
+	console.log("negative clicked");
+	}} />
+
+
 ```
 
 ## API's
 
 - **Sheet View**
-	- `setTitle(title: string)`
-	- `addItem(title: string, subTitle: string, icon: image) - subTitle: iOS Only`
+	- `title(title: string)`
+	- `items(title: string, subTitle: string, icon: image) - subTitle: iOS Only`
 	- `onSelection(selcFunc: function)`
-	- `show()`
-	- `setTitleTextColor(color: string) - Android Only` 
-	- `setItemTextColor(color: string) - Android Only`
-	- `setItemTintColor(color: string) - Android Only`
-	- `setBackgroundColor(color: string) - Android Only`
-	- `setDelayDismissOnItemClick(flag: bool) - Android Only`
-	- `addDividerItem(title: string) - Android Only`
-	- `setTheme(theme: string) - iOS Only`
-	- `setSelection(selc: int) - iOS Only`
+	- `Show()`
+	- `titleTextColor(color: string) - Android Only` 
+	- `itemTextColor(color: string) - Android Only`
+	- `itemTintColor(color: string) - Android Only`
+	- `backgroundColor(color: string) - Android Only`
+	- `delayDismissOnItemClick(flag: bool) - Android Only`
+	- `dividerItem(title: string) - Android Only`
+	- `theme(theme: string) - iOS Only`
+	- `selection(selc: int) - iOS Only`
 
 - **Grid View**
-	- `setTitle(title: string)`
-	- `addItem(title: string, icon: image)`
-	- `onSelection(selcFunc: function)`
-	- `show()`
-	- `setItemTextColor(color: string) - Android Only`
-	- `setItemTintColor(color: string) - Android Only`
-	- `setBackgroundColor(color: string) - Android Only`
-	- `setDelayDismissOnItemClick(flag: bool) - Android Only`
-	- `setTheme(theme: string): iOS Only`
+	- `title(title: string)`
+	- `ttems(title: string, icon: image)`
+	- `selection(selcFunc: function)`
+	- `Show()`
+	- `itemTextColor(color: string) - Android Only`
+	- `itemTintColor(color: string) - Android Only`
+	- `backgroundColor(color: string) - Android Only`
+	- `delayDismissOnItemClick(flag: bool) - Android Only`
+	- `theme(theme: string): iOS Only`
 
 - **Alert View**
-	- `setTitle(title: string)`
-	- `setMessage(message: string)`
-	- `setPositiveText(text: string)`
-	- `setPositiveBackgroundColor(color: string)`
-	- `setPositiveTextColor(color: string)`
-	- `setNegativeText(text: string)`
-	- `setNegativeBackgroundColor(color: string)`
-	- `setNegativeTextColor(color: string)`
+	- `title(title: string)`
+	- `message(message: string)`
+	- `positiveText(text: string)`
+	- `positiveBackgroundColor(color: string)`
+	- `positiveTextColor(color: string)`
+	- `negativeText(text: string)`
+	- `negativeBackgroundColor(color: string)`
+	- `negativeTextColor(color: string)`
 	- `onPositive(selcFunc: function)`
 	- `onNegative(selcFunc: function)`
-	- `setTheme(theme: string) - iOS Only`
-	- `show()`
+	- `theme(theme: string) - iOS Only`
+	- `Show()`
 
 ## TO DO
 - Enable Android customization features for iOS platform as well
