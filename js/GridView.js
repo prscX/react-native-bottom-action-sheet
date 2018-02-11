@@ -1,11 +1,35 @@
 import React, { Component } from "react";
 import { ViewPropTypes, NativeModules } from "react-native";
 import PropTypes from "prop-types";
+import { is } from "immutable";
 import resolveAssetSource from "react-native/Libraries/Image/resolveAssetSource";
 
 const { RNBottomActionSheet } = NativeModules;
 
 class GridView extends Component {
+  static propTypes = {
+    ...ViewPropTypes,
+
+    title: PropTypes.string,
+    theme: PropTypes.string,
+    itemTextColor: PropTypes.string,
+    itemTintColor: PropTypes.string,
+    backgroundColor: PropTypes.string,
+    delayDismissOnItemClick: PropTypes.bool,
+    onSelection: PropTypes.func,
+    visible: PropTypes.bool
+  };
+
+  static defaultProps = {
+    title: '',
+    theme: "light",
+    itemTextColor: "",
+    itemTintColor: "",
+    backgroundColor: "",
+    delayDismissOnItemClick: false,
+    visible: false
+  };
+
   static Show(props) {
     if (props.title === undefined) props.title = GridView.defaultProps.title;
     if (props.items === undefined) props.items = GridView.defaultProps.items;
@@ -42,32 +66,62 @@ class GridView extends Component {
       }
     );
   }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (is(this.props, nextProps)) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  componentDidMount() {
+    this._show();
+  }
+
+  componentDidUpdate() {
+    this._show();
+  }
+
+  _show() {
+    if (this.props.visible) {
+      let props = this.props;
+      let items = [];
+
+      React.Children.map(this.props.children, (item, index) => {
+        items.push({
+          title: item.props.title,
+          icon:
+            item.props.icon === undefined
+              ? undefined
+              : resolveAssetSource(item.props.icon),
+          divider: false
+        });
+      });
+
+      GridView.Show(Object.assign({}, props, { items: items }));
+    }
+  }
+
+  render() {
+    return null;
+  }
 }
 
 
-GridView.propTypes = {
-  ...ViewPropTypes,
+class Item extends Component {}
 
+Item.propTypes = {
   title: PropTypes.string,
-  items: PropTypes.array,
-  theme: PropTypes.string,
-  itemTextColor: PropTypes.string,
-  itemTintColor: PropTypes.string,
-  backgroundColor: PropTypes.string,
-  delayDismissOnItemClick: PropTypes.func,
-  onSelection: PropTypes.func,
-  visible: PropTypes.bool
+  divider: PropTypes.bool,
+  icon: PropTypes.number
 };
 
-GridView.defaultProps = {
-  title: '',
-  items: new Array(),
-  theme: "light",
-  itemTextColor: "",
-  itemTintColor: "",
-  backgroundColor: "",
-  delayDismissOnItemClick: false,
-  visible: false
+Item.defaultProps = {
+  title: "",
+  divider: false
 };
+
+GridView.Item = Item;
 
 export { GridView };

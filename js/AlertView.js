@@ -1,11 +1,45 @@
 import React, { Component } from "react";
 import { ViewPropTypes, NativeModules } from "react-native";
 import PropTypes from "prop-types";
+import { is } from 'immutable'
 
 
 const { RNBottomActionSheet } = NativeModules;
 
 class AlertView extends Component {
+
+  static propTypes = {
+    ...ViewPropTypes,
+
+    title: PropTypes.string,
+    message: PropTypes.string,
+    positiveText: PropTypes.string,
+    positiveBackgroundColor: PropTypes.string,
+    positiveTextColor: PropTypes.string,
+    negativeText: PropTypes.string,
+    negativeBackgroundColor: PropTypes.string,
+    negativeTextColor: PropTypes.string,
+    theme: PropTypes.string,
+
+    onPositive: PropTypes.func,
+    onNegative: PropTypes.func,
+
+    visible: PropTypes.bool
+  };
+
+  static defaultProps = {
+    title: "",
+    message: "",
+    positiveText: "OK",
+    positiveBackgroundColor: "#3f51b5",
+    positiveTextColor: "@FFFFFF",
+    negativeText: "",
+    negativeBackgroundColor: "",
+    negativeTextColor: "@3f51b5",
+    theme: "light",
+    visible: false
+  };
+
   static Show(props) {
     if (props.title === undefined) props.title = AlertView.defaultProps.title;
     if (props.message === undefined)
@@ -65,7 +99,7 @@ class AlertView extends Component {
 
   _show() {
     if (this.props.visible) {
-      AlertView.Show(...props)
+      AlertView.Show(this.props)
     }
   }
 
@@ -74,37 +108,5 @@ class AlertView extends Component {
   }
 }
 
-
-AlertView.propTypes = {
-  ...ViewPropTypes,
-
-  title: PropTypes.string,
-  message: PropTypes.string,
-  positiveText: PropTypes.string,
-  positiveBackgroundColor: PropTypes.string,
-  positiveTextColor: PropTypes.string,
-  negativeText: PropTypes.string,
-  negativeBackgroundColor: PropTypes.string,
-  negativeTextColor: PropTypes.string,
-  theme: PropTypes.string,
-
-  onPositive: PropTypes.func,
-  onNegative: PropTypes.func,
-
-  visible: PropTypes.bool
-};
-
-AlertView.defaultProps = {
-  title: "",
-  message: "",
-  positiveText: "OK",
-  positiveBackgroundColor: "#3f51b5",
-  positiveTextColor: "@FFFFFF",
-  negativeText: "",
-  negativeBackgroundColor: "",
-  negativeTextColor: "@3f51b5",
-  theme: "light",
-  visible: false
-};
 
 export { AlertView }

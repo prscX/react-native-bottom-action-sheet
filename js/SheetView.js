@@ -1,11 +1,41 @@
 import React, { Component } from "react";
 import { ViewPropTypes, NativeModules } from "react-native";
 import PropTypes from "prop-types";
+import { is } from "immutable";
 import resolveAssetSource from "react-native/Libraries/Image/resolveAssetSource";
 
 const { RNBottomActionSheet } = NativeModules;
 
 class SheetView extends Component {
+
+  static propTypes = {
+    ...ViewPropTypes,
+
+    title: PropTypes.string,
+    theme: PropTypes.string,
+
+    selection: PropTypes.number,
+    titleTextColor: PropTypes.string,
+    itemTextColor: PropTypes.string,
+    itemTintColor: PropTypes.string,
+    backgroundColor: PropTypes.string,
+    delayDismissOnItemClick: PropTypes.bool,
+    visible: PropTypes.bool
+  };
+
+  static defaultProps = {
+    title: '',
+    theme: 'light',
+
+    selection: 0,
+    titleTextColor: '',
+    itemTextColor: '',
+    itemTintColor: '',
+    backgroundColor: '',
+    delayDismissOnItemClick: false,
+    visible: false
+  };
+
   static Show(props) {
     if (props.title === undefined) props.title = SheetView.defaultProps.theme;
     if (props.items === undefined) props.items = SheetView.defaultProps.items;
@@ -50,38 +80,69 @@ class SheetView extends Component {
       }
     );
   }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (is(this.props, nextProps)) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  componentDidMount() {
+    this._show();
+  }
+
+  componentDidUpdate() {
+    this._show();
+  }
+
+  _show() {
+    if (this.props.visible) {
+      let props = this.props
+      let items = []
+
+      React.Children.map(
+        this.props.children,
+        (item, index) => {
+          items.push({
+            title: item.props.title,
+            subTitle: item.props.subTitle,
+            icon:
+              item.props.icon === undefined
+                ? undefined
+                : resolveAssetSource(item.props.icon),
+            divider: item.props.divider === undefined ? '' : item.props.divider
+          })
+        }
+      )
+
+      SheetView.Show(Object.assign({}, props, { items: items }));
+    }
+  }
+
+  render() {
+    return null;
+  }
 }
 
+class Item extends Component {
 
-SheetView.propTypes = {
-  ...ViewPropTypes,
+}
 
+Item.propTypes = {
   title: PropTypes.string,
-  items: PropTypes.array,
-  theme: PropTypes.string,
+  subTitle: PropTypes.string,
+  divider: PropTypes.bool,
+  icon: PropTypes.number
+}
 
-  selection: PropTypes.number,
-  titleTextColor: PropTypes.string,
-  itemTextColor: PropTypes.string,
-  itemTintColor: PropTypes.string,
-  backgroundColor: PropTypes.string,
-  delayDismissOnItemClick: PropTypes.bool,
-  visible: PropTypes.bool
-};
-
-SheetView.defaultProps = {
+Item.defaultProps = {
   title: '',
-  items: new Array(),
-  theme: 'light',
+  subTitle: '',
+  divider: false
+}
 
-  selection: 0,
-  titleTextColor: '',
-  itemTextColor: '',
-  itemTintColor: '',
-  backgroundColor: '',
-  delayDismissOnItemClick: false,
-  visible: false
-};
-
+SheetView.Item = Item
 
 export { SheetView };
