@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="https://storage.googleapis.com/material-design/publish/material_v_12/assets/0B7WCemMG6e0VVWZzZ1FIN09XWGc/components-bottom-sheets.png" height="600" width="800" />
+  <img src="https://storage.googleapis.com/material-design/publish/material_v_12/assets/0B7WCemMG6e0VVWZzZ1FIN09XWGc/components-bottom-sheets.png" height="300" width="600" />
 </p>
 
 <p align="center">
@@ -15,31 +15,36 @@
 A simple library that creates BottomSheets according to the [Material Design Specs](https://material.google.com/components/bottom-sheets.html) 
 ## Android
 
-- **Sheet View**
 
-![](https://github.com/rubensousa/BottomSheetBuilder/raw/master/screens/normal_demo.gif)
+| **Sheet View**             |
+| ----------------- |
+| <img src="https://github.com/rubensousa/BottomSheetBuilder/raw/master/screens/normal_demo.gif" width="600" height="600" />                  |
 
-- **Grid View**
+| **Grid View**             |
+| ----------------- |
+| <img src="https://github.com/rubensousa/BottomSheetBuilder/raw/master/screens/tablet_grid.png" width="600" height="600" />                  |
 
-![](https://github.com/rubensousa/BottomSheetBuilder/raw/master/screens/tablet_grid.png)
 
-- **Alert View**
+| **Alert View**             |
+| ----------------- |
+| <img src="https://raw.githubusercontent.com/javiersantos/BottomDialogs/master/Screenshots/gif-1.gif" width="600" height="600" />                  |
 
-![](https://raw.githubusercontent.com/javiersantos/BottomDialogs/master/Screenshots/gif-1.gif)
 
 #### iOS
 
-- **Sheet View**
+| **Sheet View**             |
+| ----------------- |
+| <img src="https://github.com/sagiwei/SGActionView/raw/master/sheet.png" width="600" height="600" />                  |
 
-![](https://github.com/sagiwei/SGActionView/raw/master/sheet.png)
+| **Grid View**             |
+| ----------------- |
+| <img src="https://github.com/sagiwei/SGActionView/raw/master/grid.png" width="600" height="600" />                  |
 
-- **Grid View**
 
-![](https://github.com/sagiwei/SGActionView/raw/master/grid.png)
+| **Alert View**             |
+| ----------------- |
+| <img src="https://github.com/sagiwei/SGActionView/raw/master/alert.png" width="600" height="600" />                  |
 
-- **Alert View**
-
-![](https://github.com/sagiwei/SGActionView/raw/master/alert.png)
 
 It is a React Native Bridge around below native Android & iOS Libraries
 
