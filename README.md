@@ -30,7 +30,7 @@ A simple library that creates BottomSheets according to the [Material Design Spe
 | <img src="https://raw.githubusercontent.com/javiersantos/BottomDialogs/master/Screenshots/gif-1.gif" width="600" height="600" />                  |
 
 
-#### iOS
+## iOS
 
 | **Sheet View**             |
 | ----------------- |
