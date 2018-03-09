@@ -56,10 +56,25 @@ Before we dive into on how to use this library. We would like to thank all the c
 
 ## Getting started
 
-- `$ npm install react-native-bottom-action-sheet --save`
+`$ npm install react-native-bottom-action-sheet --save`
 
-- `$ react-native link react-native-bottom-action-sheet`
+`$ react-native link react-native-bottom-action-sheet`
 
+- **IOS**
+
+`$ cd ./node_modules/react-native-bottom-action-sheet/ios/ && pod install`
+
+- **Android**
+
+Please add below snippet into your app `build.gradle`
+
+```
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
 
 ## Usage
 ```javascript

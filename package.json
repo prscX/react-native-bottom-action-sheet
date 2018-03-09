@@ -1,6 +1,6 @@
 {
     "name": "react-native-bottom-action-sheet",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "React Native: Bottom Action Sheet",
     "main": "js/index.js",
     "repository": {
@@ -8,7 +8,6 @@
         "url": "https://github.com/prscX/react-native-bottom-action-sheet.git"
     },
     "scripts": {
-        "postinstall": "cd ./ios && pod install",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [
