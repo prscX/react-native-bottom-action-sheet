@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { ViewPropTypes, NativeModules } from "react-native";
 import PropTypes from "prop-types";
 import { is } from "immutable";
-import resolveAssetSource from "react-native/Libraries/Image/resolveAssetSource";
+
+import RNVectorHelper from './RNVectorHelper'
 
 const { RNBottomActionSheet } = NativeModules;
 
@@ -45,7 +46,15 @@ class GridView extends Component {
         GridView.defaultProps.delayDismissOnItemClick;
 
     props.items = props.items.map(element => {
-      if (element.icon) element.icon = resolveAssetSource(element.icon);
+      if (element.icon && element.icon.props) {
+        element.icon = element.icon.props
+
+        let glyph = RNVectorHelper.Resolve(element.icon.family, element.icon.name);
+        element.icon = Object.assign({}, element.icon, {
+          glyph: glyph
+        });
+      }
+
       element.divider = false;
 
       return element;
@@ -89,12 +98,22 @@ class GridView extends Component {
       let items = [];
 
       React.Children.map(this.props.children, (item, index) => {
+        let icon;
+        if (item && item.props.icon && item.props.icon.props) {
+          icon = item.props.icon.props;
+
+          let glyph = RNVectorHelper.Resolve(icon.family, icon.name);
+          icon = Object.assign({}, icon, {
+            glyph: glyph
+          });
+        }
+
         items.push({
           title: item.props.title,
           icon:
             item.props.icon === undefined
               ? undefined
-              : resolveAssetSource(item.props.icon),
+              : icon,
           divider: false
         });
       });

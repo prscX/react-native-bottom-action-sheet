@@ -15,14 +15,8 @@ import {
 } from "react-native";
 
 import RNBottomActionSheet from 'react-native-bottom-action-sheet'
-let facebook = require('./assets/facebook.png')
-let instagram = require('./assets/instagram.png')
-let skype = require("./assets/skype.png");
-let twitter = require("./assets/twitter.png");
-let whatsapp = require("./assets/whatsapp.png");
-let youtube = require("./assets/youtube.png");
-let linkedin = require("./assets/linkedin.png");
-let google = require("./assets/google.png");
+
+import Icon from "react-native-vector-icons/FontAwesome";
 
 export default class App extends Component<{}> {
   constructor (props) {
@@ -57,6 +51,15 @@ export default class App extends Component<{}> {
   }
 
   _showSheetView = () => {
+    let facebook = <Icon name={"facebook"} color={"#000000"} size={40} family={"FontAwesome"} />;
+    let instagram = <Icon name={"instagram"} color={"#000000"} size={40} family={"FontAwesome"} />;
+    let skype = <Icon name={"skype"} color={"#000000"} size={40} family={"FontAwesome"} />;
+    let twitter = <Icon name={"twitter"} color={"#000000"} size={40} family={"FontAwesome"} />;
+    let whatsapp = <Icon name={"whatsapp"} color={"#000000"} size={40} family={"FontAwesome"} />;
+    let youtube = <Icon name={"youtube"} color={"#000000"} size={40} family={"FontAwesome"} />;
+    let google = <Icon name={"google"} color={"#000000"} size={40} family={"FontAwesome"} />;
+    let linkedin = <Icon name={"linkedin"} color={"#000000"} size={40} family={"FontAwesome"} />;
+
     let SheetView = RNBottomActionSheet.SheetView
     SheetView.Show({
       title: "Awesome!",
@@ -79,6 +82,16 @@ export default class App extends Component<{}> {
   }
 
   _showGridView = () => {
+    let facebook = <Icon name={'facebook'} color={'#000000'} size={40} family={'FontAwesome'} />
+    let instagram = <Icon name={"instagram"} color={"#000000"} size={40} family={"FontAwesome"} />;
+    let skype = <Icon name={"skype"} color={"#000000"} size={40} family={"FontAwesome"} />;
+    let twitter = <Icon name={"twitter"} color={"#000000"} size={40} family={"FontAwesome"} />;
+    let whatsapp = <Icon name={"whatsapp"} color={"#000000"} size={40} family={"FontAwesome"} />;
+    let youtube = <Icon name={"youtube"} color={"#000000"} size={40} family={"FontAwesome"} />;
+    let google = <Icon name={'google'} color={'#000000'} size={40} family={'FontAwesome'} />
+    let linkedin = <Icon name={"linkedin"} color={"#000000"} size={40} family={"FontAwesome"} />;
+
+
     let GridView = RNBottomActionSheet.GridView
     GridView.Show({
       title: "Awesome!",
@@ -100,14 +113,24 @@ export default class App extends Component<{}> {
   }
 
   render() {
+    let facebook = <Icon name={"facebook"} size={40} color={"#000000"} family={"FontAwesome"} />;
+    let instagram = <Icon name={"instagram"} size={40} color={"#000000"} family={"FontAwesome"} />;
+    let skype = <Icon name={"skype"} size={40} color={"#000000"} family={"FontAwesome"} />;
+    let twitter = <Icon name={"twitter"} size={40} color={"#000000"} family={"FontAwesome"} />;
+    let whatsapp = <Icon name={"whatsapp"} size={40} color={"#000000"} family={"FontAwesome"} />;
+    let youtube = <Icon name={"youtube"} size={40} color={"#000000"} family={"FontAwesome"} />;
+    let google = <Icon name={"google"} size={40} color={"#000000"} family={"FontAwesome"} />;
+    let linkedin = <Icon name={"linkedin"} size={40} color={"#000000"} family={"FontAwesome"} />;
+
+
     return <View style={styles.container}>
         <TouchableHighlight onPress={() => {
-            // this._showAlertView();
-            this.setState({
-              alterView: true,
-              sheetView: false,
-              gridView: false
-            });
+            this._showAlertView();
+            // this.setState({
+            //   alterView: true,
+            //   sheetView: false,
+            //   gridView: false
+            // });
           }}>
           <Text>{"Alert View"}</Text>
         </TouchableHighlight>
@@ -117,12 +140,12 @@ export default class App extends Component<{}> {
             console.log("negative clicked");
           }} />
         <TouchableHighlight onPress={() => {
-            // this._showSheetView();
-            this.setState({
-              alterView: false,
-              sheetView: true,
-              gridView: false
-            });
+            this._showSheetView();
+            // this.setState({
+            //   alterView: false,
+            //   sheetView: true,
+            //   gridView: false
+            // });
           }}>
           <Text>{"Sheet View"}</Text>
         </TouchableHighlight>
@@ -139,12 +162,12 @@ export default class App extends Component<{}> {
           <RNBottomActionSheet.SheetView.Item title={"LinkedIn"} subTitle={"LinkedIn Description"} icon={linkedin} />
         </RNBottomActionSheet.SheetView>
         <TouchableHighlight onPress={() => {
-            // this._showGridView();
-            this.setState({
-              alterView: false,
-              sheetView: false,
-              gridView: true
-            });
+            this._showGridView();
+            // this.setState({
+            //   alterView: false,
+            //   sheetView: false,
+            //   gridView: true
+            // });
           }}>
           <Text>{"Grid View"}</Text>
         </TouchableHighlight>

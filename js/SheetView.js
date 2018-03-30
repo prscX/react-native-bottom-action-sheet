@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { ViewPropTypes, NativeModules } from "react-native";
 import PropTypes from "prop-types";
 import { is } from "immutable";
-import resolveAssetSource from "react-native/Libraries/Image/resolveAssetSource";
+
+import RNVectorHelper from "./RNVectorHelper";
 
 const { RNBottomActionSheet } = NativeModules;
 
@@ -57,8 +58,14 @@ class SheetView extends Component {
     props.items = props.items.map(element => {
       if (element.title === undefined) element.title = "";
       if (element.subTitle === undefined) element.subTitle = "";
-      if (element.icon) element.icon = resolveAssetSource(element.icon);
       if (element.divider === undefined) element.divider = false;
+
+      if (element.icon && element.icon.props) {
+        element.icon = element.icon.props;
+
+        let glyph = RNVectorHelper.Resolve(element.icon.family, element.icon.name);
+        element.icon = Object.assign({}, element.icon, { glyph: glyph });
+      }
 
       return element;
     });
@@ -105,13 +112,21 @@ class SheetView extends Component {
       React.Children.map(
         this.props.children,
         (item, index) => {
+          let icon
+          if (item && item.props.icon && item.props.icon.props) {
+            icon = item.props.icon.props;
+
+            let glyph = RNVectorHelper.Resolve(icon.family, icon.name);
+            icon = Object.assign({}, icon, { glyph: glyph });
+          }
+
           items.push({
             title: item.props.title,
             subTitle: item.props.subTitle,
             icon:
               item.props.icon === undefined
                 ? undefined
-                : resolveAssetSource(item.props.icon),
+                : icon,
             divider: item.props.divider === undefined ? '' : item.props.divider
           })
         }

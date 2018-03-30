@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B3E7B58A1CC2AC0600A0062D /* RNBottomActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNBottomActionSheet.m */; };
+		C6DDD60BA75772DAD6D94204 /* libPods-RNBottomActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91BCB1B2CAF47DF7C900A97F /* libPods-RNBottomActionSheet.a */; };
 		CEB44EF5201C8D3C005BBC62 /* libSGActionView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB44EF4201C8D38005BBC62 /* libSGActionView.a */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRNBottomActionSheet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNBottomActionSheet.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		352AAF0311789E49CEE2C56D /* Pods-RNBottomActionSheet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNBottomActionSheet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RNBottomActionSheet/Pods-RNBottomActionSheet.debug.xcconfig"; sourceTree = "<group>"; };
+		91BCB1B2CAF47DF7C900A97F /* libPods-RNBottomActionSheet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RNBottomActionSheet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96369240A09247250EC61570 /* Pods-RNBottomActionSheet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNBottomActionSheet.release.xcconfig"; path = "Pods/Target Support Files/Pods-RNBottomActionSheet/Pods-RNBottomActionSheet.release.xcconfig"; sourceTree = "<group>"; };
 		B3E7B5881CC2AC0600A0062D /* RNBottomActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNBottomActionSheet.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNBottomActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNBottomActionSheet.m; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEB44EF5201C8D3C005BBC62 /* libSGActionView.a in Frameworks */,
+				C6DDD60BA75772DAD6D94204 /* libPods-RNBottomActionSheet.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				CEB44EEC201C8D38005BBC62 /* Pods.xcodeproj */,
+				91BCB1B2CAF47DF7C900A97F /* libPods-RNBottomActionSheet.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
