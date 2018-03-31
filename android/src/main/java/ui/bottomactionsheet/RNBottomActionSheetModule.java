@@ -102,9 +102,27 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
     boolean delayDismissOnItemClick = props.getBoolean("delayDismissOnItemClick");
 
 
-    BottomSheetBuilder bottomSheetBuilder = new BottomSheetBuilder(reactContext.getCurrentActivity(), R.style.Theme_Design_Light_BottomSheetDialog);
-    bottomSheetBuilder.setMode(BottomSheetBuilder.MODE_LIST);
-    bottomSheetBuilder.addTitleItem(title);
+    BottomSheetBuilder bottomSheetBuilder = new BottomSheetBuilder(reactContext.getCurrentActivity());
+    bottomSheetBuilder = bottomSheetBuilder.setMode(BottomSheetBuilder.MODE_LIST);
+    bottomSheetBuilder = bottomSheetBuilder.addTitleItem(title);
+
+    if (titleTextColor != null && titleTextColor.length() > 0) {
+      bottomSheetBuilder = bottomSheetBuilder.setTitleTextColor(Color.parseColor(titleTextColor));
+    }
+    if (itemTextColor != null && itemTextColor.length() > 0) {
+      bottomSheetBuilder = bottomSheetBuilder.setItemTextColor(Color.parseColor(itemTextColor));
+    }
+
+    if (itemTintColor != null && itemTintColor.length() > 0) {
+      bottomSheetBuilder = bottomSheetBuilder.setIconTintColor(Color.parseColor(itemTintColor));
+    }
+    if (backgroundColor != null && backgroundColor.length() > 0) {
+      bottomSheetBuilder = bottomSheetBuilder.setBackgroundColor(Color.parseColor(backgroundColor));
+    }
+    if (delayDismissOnItemClick) {
+      bottomSheetBuilder = bottomSheetBuilder.delayDismissOnItemClick(delayDismissOnItemClick);
+    }
+
 
     for (int index = 0; index < items.size(); index++) {
       ReadableMap item = items.getMap(index);
@@ -113,10 +131,10 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
       if (divider) {
         String dividerTitle = item.getString("title");
         if (dividerTitle != null && dividerTitle.length() > 0) {
-          bottomSheetBuilder.addTitleItem(dividerTitle);
+          bottomSheetBuilder = bottomSheetBuilder.addTitleItem(dividerTitle);
         }
 
-        bottomSheetBuilder.addDividerItem();
+        bottomSheetBuilder = bottomSheetBuilder.addDividerItem();
       } else {
         ReadableMap icon = item.getMap("icon");
         if (icon == null) {
@@ -124,28 +142,11 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
         }
 
         Drawable drawable = this.generateVectorIcon(icon);
-        bottomSheetBuilder.addItem(index, item.getString("title"), drawable);
+        bottomSheetBuilder = bottomSheetBuilder.addItem(index, item.getString("title"), drawable);
       }
     }
 
-    if (titleTextColor != null && titleTextColor.length() > 0) {
-      bottomSheetBuilder.setTitleTextColor(Color.parseColor(titleTextColor));
-    }
-    if (itemTextColor != null && itemTextColor.length() > 0) {
-      bottomSheetBuilder.setItemTextColor(Color.parseColor(itemTextColor));
-    }
-    if (itemTintColor != null && itemTintColor.length() > 0) {
-      bottomSheetBuilder.setIconTintColor(Color.parseColor(itemTintColor));
-    }
-    if (backgroundColor != null && backgroundColor.length() > 0) {
-      bottomSheetBuilder.setBackgroundColor(Color.parseColor(backgroundColor));
-    }
-    if (delayDismissOnItemClick) {
-      bottomSheetBuilder.delayDismissOnItemClick(delayDismissOnItemClick);
-    }
-
-
-    bottomSheetBuilder.setItemClickListener(new BottomSheetItemClickListener() {
+    bottomSheetBuilder = bottomSheetBuilder.setItemClickListener(new BottomSheetItemClickListener() {
       @Override
       public void onBottomSheetItemClick(MenuItem item) {
         callback.invoke(item.getItemId());
@@ -170,7 +171,21 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
     boolean delayDismissOnItemClick = props.getBoolean("delayDismissOnItemClick");
 
     BottomSheetBuilder bottomSheetBuilder = new BottomSheetBuilder(reactContext.getCurrentActivity(), R.style.Theme_Design_Light_BottomSheetDialog);
-    bottomSheetBuilder.setMode(BottomSheetBuilder.MODE_GRID);
+    bottomSheetBuilder = bottomSheetBuilder.setMode(BottomSheetBuilder.MODE_GRID);
+
+    if (itemTextColor != null && itemTextColor.length() > 0) {
+      bottomSheetBuilder = bottomSheetBuilder.setItemTextColor(Color.parseColor(itemTextColor));
+    }
+    if (itemTintColor != null && itemTintColor.length() > 0) {
+      bottomSheetBuilder = bottomSheetBuilder.setIconTintColor(Color.parseColor(itemTintColor));
+    }
+    if (backgroundColor != null && backgroundColor.length() > 0) {
+      bottomSheetBuilder = bottomSheetBuilder.setBackgroundColor(Color.parseColor(backgroundColor));
+    }
+    if (delayDismissOnItemClick) {
+      bottomSheetBuilder = bottomSheetBuilder.delayDismissOnItemClick(delayDismissOnItemClick);
+    }
+
 
     for (int index = 0; index < items.size(); index++) {
       ReadableMap item = items.getMap(index);
@@ -181,24 +196,10 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
       }
 
       Drawable drawable = this.generateVectorIcon(icon);
-      bottomSheetBuilder.addItem(index, item.getString("title"), drawable);
+      bottomSheetBuilder = bottomSheetBuilder.addItem(index, item.getString("title"), drawable);
     }
 
-
-    if (itemTextColor != null && itemTextColor.length() > 0) {
-      bottomSheetBuilder.setItemTextColor(Color.parseColor(itemTextColor));
-    }
-    if (itemTintColor != null && itemTintColor.length() > 0) {
-      bottomSheetBuilder.setIconTintColor(Color.parseColor(itemTintColor));
-    }
-    if (backgroundColor != null && backgroundColor.length() > 0) {
-      bottomSheetBuilder.setBackgroundColor(Color.parseColor(backgroundColor));
-    }
-    if (delayDismissOnItemClick) {
-      bottomSheetBuilder.delayDismissOnItemClick(delayDismissOnItemClick);
-    }
-
-    bottomSheetBuilder.setItemClickListener(new BottomSheetItemClickListener() {
+    bottomSheetBuilder = bottomSheetBuilder.setItemClickListener(new BottomSheetItemClickListener() {
       @Override
       public void onBottomSheetItemClick(MenuItem item) {
         callback.invoke(item.getItemId());

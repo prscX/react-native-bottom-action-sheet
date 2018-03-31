@@ -71,7 +71,7 @@ class GridView extends Component {
         delayDismissOnItemClick: props.delayDismissOnItemClick
       },
       selection => {
-        props._onSelection && props._onSelection(selection);
+        props.onSelection && props.onSelection(selection);
       }
     );
   }
