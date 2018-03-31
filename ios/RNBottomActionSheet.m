@@ -154,6 +154,5 @@ RCT_EXPORT_METHOD(GridView:(NSDictionary *)props callback:(RCTResponseSenderBloc
     return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
 
-
 @end
   

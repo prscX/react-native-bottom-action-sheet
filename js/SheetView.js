@@ -112,21 +112,10 @@ class SheetView extends Component {
       React.Children.map(
         this.props.children,
         (item, index) => {
-          let icon
-          if (item && item.props.icon && item.props.icon.props) {
-            icon = item.props.icon.props;
-
-            let glyph = RNVectorHelper.Resolve(icon.family, icon.name);
-            icon = Object.assign({}, icon, { glyph: glyph });
-          }
-
           items.push({
             title: item.props.title,
             subTitle: item.props.subTitle,
-            icon:
-              item.props.icon === undefined
-                ? undefined
-                : icon,
+            icon: item.props.icon,
             divider: item.props.divider === undefined ? '' : item.props.divider
           })
         }
