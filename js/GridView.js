@@ -1,13 +1,12 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { ViewPropTypes, NativeModules } from "react-native";
 import PropTypes from "prop-types";
-import { is } from "immutable";
 
 import RNVectorHelper from './RNVectorHelper'
 
 const { RNBottomActionSheet } = NativeModules;
 
-class GridView extends Component {
+class GridView extends PureComponent {
   static propTypes = {
     ...ViewPropTypes,
 
@@ -76,14 +75,6 @@ class GridView extends Component {
     );
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    if (is(this.props, nextProps)) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
   componentDidMount() {
     this._show();
   }
@@ -115,7 +106,7 @@ class GridView extends Component {
 }
 
 
-class Item extends Component {}
+class Item extends PureComponent {}
 
 Item.propTypes = {
   title: PropTypes.string,
