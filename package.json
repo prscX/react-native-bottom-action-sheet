@@ -1,22 +1,24 @@
 {
-  "name": "react-native-bottom-action-sheet",
-  "version": "0.0.7",
-  "description": "React Native: Bottom Action Sheet",
-  "main": "js/index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/prscX/react-native-bottom-action-sheet.git"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": ["react-native"],
-  "author": "Pranav Raj Singh Chauhan",
-  "dependencies": {
-    "react-native-vector-icons": "4.5.0"
-  },
-  "devDependencies": {
-    "prettier-pack": "0.0.4"
-  },
-  "license": "MIT"
+    "name": "react-native-bottom-action-sheet",
+    "version": "0.0.7",
+    "description": "React Native: Bottom Action Sheet",
+    "main": "js/index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/prscX/react-native-bottom-action-sheet.git"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "react-native"
+    ],
+    "author": "Pranav Raj Singh Chauhan",
+    "dependencies": {
+        "react-native-vector-icons": "4.5.0"
+    },
+    "devDependencies": {
+        "prettier-pack": "0.0.4"
+    },
+    "license": "MIT"
 }
