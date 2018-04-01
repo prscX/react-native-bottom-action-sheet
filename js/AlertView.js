@@ -1,12 +1,10 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { ViewPropTypes, NativeModules } from "react-native";
 import PropTypes from "prop-types";
-import { is } from 'immutable'
-
 
 const { RNBottomActionSheet } = NativeModules;
 
-class AlertView extends Component {
+class AlertView extends PureComponent {
 
   static propTypes = {
     ...ViewPropTypes,
@@ -79,14 +77,6 @@ class AlertView extends Component {
         }
       }
     );
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    if (is(this.props, nextProps)) {
-      return false;
-    } else {
-      return true;
-    }
   }
 
   componentDidMount() {
