@@ -38,7 +38,7 @@ class SheetView extends Component {
   };
 
   static Show(props) {
-    if (props.title === undefined) props.title = SheetView.defaultProps.theme;
+    if (props.title === undefined) props.title = SheetView.defaultProps.title;
     if (props.items === undefined) props.items = SheetView.defaultProps.items;
     if (props.theme === undefined) props.theme = SheetView.defaultProps.theme;
     if (props.selection === undefined)
