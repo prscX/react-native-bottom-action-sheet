@@ -15,7 +15,6 @@
     ],
     "author": "Pranav Raj Singh Chauhan",
     "dependencies": {
-        "immutable": "3.8.2",
         "react-native-vector-icons": "4.5.0"
     },
     "devDependencies": {
