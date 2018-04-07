@@ -98,13 +98,14 @@ import Icon from 'react-native-vector-icons'
 	SheetView.Show({
 		title: "Awesome!",
 		items: [
-			{ title: "Facebook", subTitle: "Facebook Description", icon: facebook },
-			{ title: "Instagram", subTitle: "Instagram Description", icon: instagram },
+			{ title: "Facebook", value: "fb", subTitle: "Facebook Description", icon: facebook },
+			{ title: "Instagram", value: "insta", subTitle: "Instagram Description", icon: instagram },
 		],
 		theme: "light",
 		selection: 3,
-		onSelection: selection => {
-			console.log("selection: " + selection);
+		onSelection: (index, value) => {
+			// value is optional
+			console.log("selection: " + index + " " + value);
 		}
 	});
 
@@ -116,8 +117,9 @@ import Icon from 'react-native-vector-icons'
 	let facebook = <Icon family={'FontAwesome'} name={'facebook'} color={'#000000'} size={30} />
 	let instagram = <Icon family={'FontAwesome'} name={'instagram'} color={'#000000'} size={30} />
 
-	<RNBottomActionSheet.SheetView visible={this.state.sheetView} title={"Awesome!"} theme={"light"} onSelection={selection => {
-		console.log("selection: " + selection);
+	<RNBottomActionSheet.SheetView visible={this.state.sheetView} title={"Awesome!"} theme={"light"} onSelection={(index, value) => {
+		// value is optional
+		console.log("selection: " + index + " " + value);
 	}}>
 		<RNBottomActionSheet.SheetView.Item title={"Facebook"} subTitle={"Facebook Description"} icon={facebook} />
 		<RNBottomActionSheet.SheetView.Item title={"Instagram"} subTitle={"Instagram Description"} icon={instagram} />
@@ -145,8 +147,8 @@ import Icon from 'react-native-vector-icons'
 			{ title: "Instagram", icon: instagram }
 			],
 			theme: 'light',
-			onSelection: (selection) => {
-			console.log('selection: ' + selection)
+			onSelection: (index, value) => {
+			console.log('selection: ' + index + ' ' + value)
 			}
 		});
 	```
@@ -157,8 +159,8 @@ import Icon from 'react-native-vector-icons'
 	let facebook = <Icon family={'FontAwesome'} name={'facebook'} color={'#000000'} size={30} />
 	let instagram = <Icon family={'FontAwesome'} name={'instagram'} color={'#000000'} size={30} />
 
-	<RNBottomActionSheet.GridView visible={this.state.gridView} title={"Awesome!"} theme={"light"} selection={3} onSelection={selection => {
-		console.log("selection: " + selection);
+	<RNBottomActionSheet.GridView visible={this.state.gridView} title={"Awesome!"} theme={"light"} selection={3} onSelection={(index, value) => {
+		console.log('selection: ' + index + ' ' + value);
 		}}>
 		<RNBottomActionSheet.GridView.Item title={"Facebook"} icon={facebook} />
 		<RNBottomActionSheet.GridView.Item title={"Instagram"} icon={instagram} />
@@ -217,45 +219,47 @@ import Icon from 'react-native-vector-icons'
 		}} />
 	```
 
-## API's
+## APIs
 
 - **Sheet View**
-	- `title(title: string)`
-	- `items(title: string, subTitle: string, icon: image) - subTitle: iOS Only`
-	- `onSelection(selcFunc: function)`
-	- `Show()`
-	- `titleTextColor(color: string) - Android Only` 
-	- `itemTextColor(color: string) - Android Only`
-	- `itemTintColor(color: string) - Android Only`
-	- `backgroundColor(color: string) - Android Only`
-	- `delayDismissOnItemClick(flag: bool) - Android Only`
+	- `title: string`
+	- `items: Array<{ title: string, subTitle: string, icon?: image, value?: mixed }> - subTitle: iOS Only`
+	- `onSelection: (index: number, value: ?mixed) => void`
+	- `titleTextColor: string - Android Only` 
+	- `itemTextColor: string - Android Only`
+	- `itemTintColor: string - Android Only`
+	- `backgroundColor: string - Android Only`
+	- `delayDismissOnItemClick: bool - Android Only`
 	- `dividerItem(title: string) - Android Only`
-	- `theme(theme: string) - iOS Only`
-	- `selection(selc: int) - iOS Only`
+	- `theme: string - iOS Only`
+	- `selection: int - iOS Only`
+	- `Show()`
+
 
 - **Grid View**
-	- `title(title: string)`
-	- `ttems(title: string, icon: image)`
-	- `selection(selcFunc: function)`
+	- `title: string`
+	- `items: Array<{ title: string, icon?: image, value?: mixed }>`
+	- `onSelection: (index: number, value: ?mixed) => void`
+	- `itemTextColor: string - Android Only`
+	- `itemTintColor: string - Android Only`
+	- `backgroundColor: string - Android Only`
+	- `delayDismissOnItemClick: bool - Android Only`
+	- `theme: string - iOS Only`
 	- `Show()`
-	- `itemTextColor(color: string) - Android Only`
-	- `itemTintColor(color: string) - Android Only`
-	- `backgroundColor(color: string) - Android Only`
-	- `delayDismissOnItemClick(flag: bool) - Android Only`
-	- `theme(theme: string): iOS Only`
+
 
 - **Alert View**
-	- `title(title: string)`
-	- `message(message: string)`
-	- `positiveText(text: string)`
-	- `positiveBackgroundColor(color: string)`
-	- `positiveTextColor(color: string)`
-	- `negativeText(text: string)`
-	- `negativeBackgroundColor(color: string)`
-	- `negativeTextColor(color: string)`
-	- `onPositive(selcFunc: function)`
-	- `onNegative(selcFunc: function)`
-	- `theme(theme: string) - iOS Only`
+	- `title string`
+	- `message: string`
+	- `positiveText: string`
+	- `positiveBackgroundColor: string`
+	- `positiveTextColor: string`
+	- `negativeText: string`
+	- `negativeBackgroundColor: string`
+	- `negativeTextColor: string`
+	- `onPositive: () => void`
+	- `onNegative: () => void`
+	- `theme: string - iOS Only`
 	- `Show()`
 
 ## TO DO
