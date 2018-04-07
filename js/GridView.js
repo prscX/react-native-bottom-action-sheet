@@ -69,8 +69,9 @@ class GridView extends PureComponent {
         backgroundColor: props.backgroundColor,
         delayDismissOnItemClick: props.delayDismissOnItemClick
       },
-      selection => {
-        props.onSelection && props.onSelection(selection);
+      selectedIndex => {
+        const selectedValue = props.items[selectedIndex].value
+        props.onSelection && props.onSelection(selectedIndex, selectedValue);
       }
     );
   }
