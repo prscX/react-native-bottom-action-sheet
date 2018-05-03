@@ -27,7 +27,7 @@ class SheetView extends PureComponent {
     title: '',
     theme: 'light',
 
-    selection: 0,
+    selection: -1,
     titleTextColor: '',
     itemTextColor: '',
     itemTintColor: '',
