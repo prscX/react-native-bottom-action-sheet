@@ -18,32 +18,31 @@ A simple library that creates BottomSheets according to the [Material Design Spe
 
 | **Sheet View**             |
 | ----------------- |
-| <img src="https://github.com/rubensousa/BottomSheetBuilder/raw/master/screens/normal_demo.gif" width="600" height="600" />                  |
+| <img src="https://github.com/rubensousa/BottomSheetBuilder/raw/master/screens/normal_demo.gif" width="320" />                  |
 
 | **Grid View**             |
 | ----------------- |
-| <img src="https://github.com/rubensousa/BottomSheetBuilder/raw/master/screens/tablet_grid.png" width="600" height="600" />                  |
+| <img src="https://github.com/rubensousa/BottomSheetBuilder/raw/master/screens/tablet_grid.png" width="600"/>                  |
 
 
 | **Alert View**             |
 | ----------------- |
-| <img src="https://raw.githubusercontent.com/javiersantos/BottomDialogs/master/Screenshots/gif-1.gif" width="600" height="600" />                  |
-
+| <img src="https://raw.githubusercontent.com/javiersantos/BottomDialogs/master/Screenshots/gif-1.gif" width="320" />                 
 
 ## iOS
 
 | **Sheet View**             |
 | ----------------- |
-| <img src="https://github.com/sagiwei/SGActionView/raw/master/sheet.png" width="600" height="600" />                  |
+| <img src="https://github.com/sagiwei/SGActionView/raw/master/sheet.png" width="437" />                  |
 
 | **Grid View**             |
 | ----------------- |
-| <img src="https://github.com/sagiwei/SGActionView/raw/master/grid.png" width="600" height="600" />                  |
+| <img src="https://github.com/sagiwei/SGActionView/raw/master/grid.png" width="437" />                  |
 
 
 | **Alert View**             |
 | ----------------- |
-| <img src="https://github.com/sagiwei/SGActionView/raw/master/alert.png" width="600" height="600" />                  |
+| <img src="https://github.com/sagiwei/SGActionView/raw/master/alert.png" width="437" />                  |
 
 
 It is a React Native Bridge around below native Android & iOS Libraries
