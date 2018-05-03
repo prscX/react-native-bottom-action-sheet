@@ -1,6 +1,6 @@
 {
     "name": "react-native-bottom-action-sheet",
-    "version": "0.0.9",
+    "version": "0.0.10",
     "description": "React Native: Bottom Action Sheet",
     "main": "js/index.js",
     "repository": {
@@ -18,7 +18,7 @@
         "react-native-vector-icons": "4.5.0"
     },
     "devDependencies": {
-        "prettier-pack": "0.0.4"
+        "prettier-pack": "0.0.6"
     },
     "license": "MIT"
 }
