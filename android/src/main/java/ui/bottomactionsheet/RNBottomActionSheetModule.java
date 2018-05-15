@@ -119,16 +119,19 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
     for (int index = 0; index < items.size(); index++) {
       ReadableMap item = items.getMap(index);
 
-      boolean divider = item.getBoolean("divider");
+      String dividerKey = "divider";
+      boolean divider = item.hasKey(dividerKey) && item.getBoolean(dividerKey);
       if (divider) {
-        String dividerTitle = item.getString("title");
+        String titleKey = "title";
+        String dividerTitle = item.hasKey(titleKey) ? item.getString(titleKey) : "";
         if (dividerTitle != null && dividerTitle.length() > 0) {
           bottomSheetBuilder = bottomSheetBuilder.addTitleItem(dividerTitle);
         }
 
         bottomSheetBuilder = bottomSheetBuilder.addDividerItem();
       } else {
-        ReadableMap icon = item.getMap("icon");
+        String iconKey = "icon";
+        ReadableMap icon = item.hasKey(iconKey) ? item.getMap(iconKey) : null;
         if (icon == null) {
           continue;
         }
@@ -227,4 +230,5 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
     canvas.drawText(glyph, -textBounds.left, -textBounds.top, paint);
 
     return new BitmapDrawable(getReactApplicationContext().getResources(), bitmap);
-  }}
+  }
+}
