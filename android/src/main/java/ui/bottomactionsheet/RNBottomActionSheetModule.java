@@ -39,11 +39,8 @@ import java.net.URL;
 
 public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
 
-  private final ReactApplicationContext reactContext;
-
   public RNBottomActionSheetModule(ReactApplicationContext reactContext) {
     super(reactContext);
-    this.reactContext = reactContext;
   }
 
   @Override
@@ -66,7 +63,7 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
     String negativeBackgroundColor = props.getString("negativeBackgroundColor");
     String negativeTextColor = props.getString("negativeTextColor");
 
-    new BottomDialog.Builder(this.reactContext.getCurrentActivity())
+    new BottomDialog.Builder(getCurrentActivity())
             .setTitle(title)
             .setContent(message)
             .setPositiveText(positiveText)
@@ -99,10 +96,8 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
     String itemTextColor = props.getString("itemTextColor");
     String itemTintColor = props.getString("itemTintColor");
     String backgroundColor = props.getString("backgroundColor");
-    boolean delayDismissOnItemClick = props.getBoolean("delayDismissOnItemClick");
 
-
-    BottomSheetBuilder bottomSheetBuilder = new BottomSheetBuilder(reactContext.getCurrentActivity());
+    BottomSheetBuilder bottomSheetBuilder = new BottomSheetBuilder(getCurrentActivity());
     bottomSheetBuilder = bottomSheetBuilder.setMode(BottomSheetBuilder.MODE_LIST);
     bottomSheetBuilder = bottomSheetBuilder.addTitleItem(title);
 
@@ -118,9 +113,6 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
     }
     if (backgroundColor != null && backgroundColor.length() > 0) {
       bottomSheetBuilder = bottomSheetBuilder.setBackgroundColor(Color.parseColor(backgroundColor));
-    }
-    if (delayDismissOnItemClick) {
-      bottomSheetBuilder = bottomSheetBuilder.delayDismissOnItemClick(delayDismissOnItemClick);
     }
 
 
@@ -168,9 +160,8 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
     String itemTextColor = props.getString("itemTextColor");
     String itemTintColor = props.getString("itemTintColor");
     String backgroundColor = props.getString("backgroundColor");
-    boolean delayDismissOnItemClick = props.getBoolean("delayDismissOnItemClick");
 
-    BottomSheetBuilder bottomSheetBuilder = new BottomSheetBuilder(reactContext.getCurrentActivity(), R.style.Theme_Design_Light_BottomSheetDialog);
+    BottomSheetBuilder bottomSheetBuilder = new BottomSheetBuilder(getCurrentActivity(), R.style.Theme_Design_Light_BottomSheetDialog);
     bottomSheetBuilder = bottomSheetBuilder.setMode(BottomSheetBuilder.MODE_GRID);
 
     if (itemTextColor != null && itemTextColor.length() > 0) {
@@ -181,9 +172,6 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
     }
     if (backgroundColor != null && backgroundColor.length() > 0) {
       bottomSheetBuilder = bottomSheetBuilder.setBackgroundColor(Color.parseColor(backgroundColor));
-    }
-    if (delayDismissOnItemClick) {
-      bottomSheetBuilder = bottomSheetBuilder.delayDismissOnItemClick(delayDismissOnItemClick);
     }
 
 
@@ -221,11 +209,11 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
     String color = icon.getString("color");
     int size = icon.getInt("size");
 
-    float scale = reactContext.getResources().getDisplayMetrics().density;
+    float scale = getReactApplicationContext().getResources().getDisplayMetrics().density;
     String scaleSuffix = "@" + (scale == (int) scale ? Integer.toString((int) scale) : Float.toString(scale)) + "x";
     int fontSize = Math.round(size * scale);
 
-    Typeface typeface = ReactFontManager.getInstance().getTypeface(family, 0, reactContext.getAssets());
+    Typeface typeface = ReactFontManager.getInstance().getTypeface(family, 0, getReactApplicationContext().getAssets());
     Paint paint = new Paint();
     paint.setTypeface(typeface);
     paint.setColor(Color.parseColor(color));
@@ -238,5 +226,5 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
     Canvas canvas = new Canvas(bitmap);
     canvas.drawText(glyph, -textBounds.left, -textBounds.top, paint);
 
-    return new BitmapDrawable(reactContext.getResources(), bitmap);
+    return new BitmapDrawable(getReactApplicationContext().getResources(), bitmap);
   }}

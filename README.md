@@ -12,7 +12,8 @@
 
 # React Native: Bottom Action Sheet (Android/iOS)
 
-A simple library that creates BottomSheets according to the [Material Design Specs](https://material.google.com/components/bottom-sheets.html) 
+A simple library that creates BottomSheets according to the [Material Design Specs](https://material.google.com/components/bottom-sheets.html)
+
 ## Android
 
 
@@ -69,12 +70,27 @@ It is a React Native Bridge around below native Android & iOS Libraries
 Please add below snippet into your app `build.gradle`
 
 ```
+
+buildscript {
+    repositories {
+        jcenter()
+        google()
+		...
+    }
+	...
+}
+
+
 allprojects {
     repositories {
         maven { url 'https://jitpack.io' }
+		google()
+		...
     }
 }
 ```
+
+> **Note:** This library is support on Android 25 > above
 
 ## Usage
 

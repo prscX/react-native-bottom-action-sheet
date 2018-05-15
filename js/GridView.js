@@ -15,7 +15,6 @@ class GridView extends PureComponent {
     itemTextColor: PropTypes.string,
     itemTintColor: PropTypes.string,
     backgroundColor: PropTypes.string,
-    delayDismissOnItemClick: PropTypes.bool,
     onSelection: PropTypes.func,
     visible: PropTypes.bool
   };
@@ -26,7 +25,6 @@ class GridView extends PureComponent {
     itemTextColor: "",
     itemTintColor: "",
     backgroundColor: "",
-    delayDismissOnItemClick: false,
     visible: false
   };
 
@@ -40,9 +38,6 @@ class GridView extends PureComponent {
       props.itemTintColor = GridView.defaultProps.itemTintColor;
     if (props.backgroundColor === undefined)
       props.backgroundColor = GridView.defaultProps.backgroundColor;
-    if (props.delayDismissOnItemClick === undefined)
-      props.delayDismissOnItemClick =
-        GridView.defaultProps.delayDismissOnItemClick;
 
     props.items = props.items.map(element => {
       if (element.icon && element.icon.props) {
@@ -66,8 +61,7 @@ class GridView extends PureComponent {
         theme: props.theme,
         itemTextColor: props.itemTextColor,
         itemTintColor: props.itemTintColor,
-        backgroundColor: props.backgroundColor,
-        delayDismissOnItemClick: props.delayDismissOnItemClick
+        backgroundColor: props.backgroundColor
       },
       selectedIndex => {
         const selectedValue = props.items[selectedIndex].value
