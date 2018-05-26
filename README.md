@@ -100,6 +100,7 @@ import Icon from 'react-native-vector-icons'
 
 ```
 
+
 - **Sheet View**
 
 	- **API Way**
@@ -183,9 +184,6 @@ import Icon from 'react-native-vector-icons'
 
 	```
 
-> **Note:**
-> - We have added `family` prop for `Icon` class, please make sure that you pass the props
-
 
 - **Alert View**
 
@@ -237,45 +235,89 @@ import Icon from 'react-native-vector-icons'
 ## APIs
 
 - **Sheet View**
-	- `title: string`
-	- `items: Array<{ title: string, subTitle: string, icon?: image, value?: mixed }> - subTitle: iOS Only`
-	- `onSelection: (index: number, value: ?mixed) => void`
-	- `titleTextColor: string - Android Only` 
-	- `itemTextColor: string - Android Only`
-	- `itemTintColor: string - Android Only`
-	- `backgroundColor: string - Android Only`
-	- `delayDismissOnItemClick: bool - Android Only`
-	- `dividerItem(title: string) - Android Only`
-	- `theme: string - iOS Only`
-	- `selection: int - iOS Only`
-	- `Show()`
+
+	- **Generic**
+		- `title: string`
+		- `items: Array<{ title: string, subTitle: string, icon?: image, value?: mixed }> - subTitle: iOS Only`
+		- `onSelection: (index: number, value: ?mixed) => void`
+		- `Show()`
+
+	- **Android**
+		- `titleTextColor: string` 
+		- `itemTextColor: string`
+		- `itemTintColor: string`
+		- `backgroundColor: string`
+		- `delayDismissOnItemClick: bool`
+		- `dividerItem(title: string)`
+
+	- **iOS**
+		- `theme: string`
+		- `selection: int`
 
 
 - **Grid View**
-	- `title: string`
-	- `items: Array<{ title: string, icon?: image, value?: mixed }>`
-	- `onSelection: (index: number, value: ?mixed) => void`
-	- `itemTextColor: string - Android Only`
-	- `itemTintColor: string - Android Only`
-	- `backgroundColor: string - Android Only`
-	- `delayDismissOnItemClick: bool - Android Only`
-	- `theme: string - iOS Only`
-	- `Show()`
+
+	- **Generic**
+		- `title: string`
+		- `items: Array<{ title: string, icon?: image, value?: mixed }>`
+		- `onSelection: (index: number, value: ?mixed) => void`
+		- `Show()`
+
+	- **Android**
+		- `itemTextColor: string`
+		- `itemTintColor: string`
+		- `backgroundColor: string`
+		- `delayDismissOnItemClick: bool`
+
+	- **iOS**
+		- `theme: string`
 
 
 - **Alert View**
-	- `title string`
-	- `message: string`
-	- `positiveText: string`
-	- `positiveBackgroundColor: string`
-	- `positiveTextColor: string`
-	- `negativeText: string`
-	- `negativeBackgroundColor: string`
-	- `negativeTextColor: string`
-	- `onPositive: () => void`
-	- `onNegative: () => void`
-	- `theme: string - iOS Only`
-	- `Show()`
+
+	- **Generic**
+		- `title string`
+		- `message: string`
+		- `positiveText: string`
+		- `positiveBackgroundColor: string`
+		- `positiveTextColor: string`
+		- `negativeText: string`
+		- `negativeBackgroundColor: string`
+		- `negativeTextColor: string`
+		- `onPositive: () => void`
+		- `onNegative: () => void`
+		- `Show()`
+
+	- **Android**
+
+	- **iOS**
+		- `theme: string - iOS Only`
+
+
+
+## Icons
+
+- **RN Vector Icons:** It supports [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons) library. Please find below snippet for the usage:
+
+```javascript
+	let facebook = <Icon family={'FontAwesome'} name={'facebook'} color={'#000000'} size={30} />
+
+	<RNBottomActionSheet.GridView.Item title={"Facebook"} icon={facebook} />
+```
+
+> **Note:**
+> - We have added `family` prop for `Icon` class, please make sure that you pass the props
+
+
+- **Custom Icons**
+
+> **Note:**
+> Since we are using native libraries, we have not found a solution in order to render RN Images in production, therefore please copy all your image assets in platform specific folders:
+
+- Android: Please copy your image assets in app resource drawable folder
+- iOS: Please copy your image assets in app resources folder
+
+> Please refer example application for the image usage.
 
 ## TO DO
 - Enable Android customization features for iOS platform as well

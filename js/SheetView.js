@@ -64,6 +64,14 @@ class SheetView extends PureComponent {
 
         let glyph = RNVectorHelper.Resolve(element.icon.family, element.icon.name);
         element.icon = Object.assign({}, element.icon, { glyph: glyph });
+      } else {
+        element.icon = {
+          name: element.icon,
+          family: '',
+          glyph: '',
+          color: '',
+          size: 0
+        }
       }
 
       return element;

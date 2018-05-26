@@ -47,6 +47,14 @@ class GridView extends PureComponent {
         element.icon = Object.assign({}, element.icon, {
           glyph: glyph
         });
+      } else {
+        element.icon = {
+          name: element.icon,
+          family: '',
+          glyph: '',
+          color: '',
+          size: 0
+        }
       }
 
       element.divider = false;

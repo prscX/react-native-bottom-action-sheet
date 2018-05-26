@@ -33,6 +33,14 @@
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		C0101F6EFCC041A0885AE4FC /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11FBD66EFDEF41E884927C3F /* MaterialCommunityIcons.ttf */; };
 		CEB44E7C201C7845005BBC62 /* libRNBottomActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB44E7B201C7823005BBC62 /* libRNBottomActionSheet.a */; };
+		CEBCF49A20B932EC00E38EBD /* google.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBCF46B20B932EB00E38EBD /* google.png */; };
+		CEBCF49B20B932EC00E38EBD /* skype.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBCF49320B932EB00E38EBD /* skype.png */; };
+		CEBCF49C20B932EC00E38EBD /* youtube.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBCF49420B932EB00E38EBD /* youtube.png */; };
+		CEBCF49D20B932EC00E38EBD /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBCF49520B932EC00E38EBD /* twitter.png */; };
+		CEBCF49E20B932EC00E38EBD /* whatsapp.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBCF49620B932EC00E38EBD /* whatsapp.png */; };
+		CEBCF49F20B932EC00E38EBD /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBCF49720B932EC00E38EBD /* facebook.png */; };
+		CEBCF4A020B932EC00E38EBD /* instagram.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBCF49820B932EC00E38EBD /* instagram.png */; };
+		CEBCF4A120B932EC00E38EBD /* linkedin.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBCF49920B932EC00E38EBD /* linkedin.png */; };
 		CECB6977206E233C00089F58 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA86C6A206E19C6002EB229 /* libRNVectorIcons.a */; };
 		CF949045307746A7B3838CFA /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A074FAF5BE84543BCEEA97B /* Zocial.ttf */; };
 		DAE865FB77EE430BA5D68E84 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F02234E00C14AD896399B09 /* FontAwesome.ttf */; };
@@ -363,6 +371,14 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		863CEB181B734FFA98754D03 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
+		CEBCF46B20B932EB00E38EBD /* google.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = google.png; sourceTree = "<group>"; };
+		CEBCF49320B932EB00E38EBD /* skype.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skype.png; sourceTree = "<group>"; };
+		CEBCF49420B932EB00E38EBD /* youtube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = youtube.png; sourceTree = "<group>"; };
+		CEBCF49520B932EC00E38EBD /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
+		CEBCF49620B932EC00E38EBD /* whatsapp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whatsapp.png; sourceTree = "<group>"; };
+		CEBCF49720B932EC00E38EBD /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		CEBCF49820B932EC00E38EBD /* instagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instagram.png; sourceTree = "<group>"; };
+		CEBCF49920B932EC00E38EBD /* linkedin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = linkedin.png; sourceTree = "<group>"; };
 		EF21C1DAD1E24CD0A8BA6EBA /* libRNBottomActionSheet.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNBottomActionSheet.a; sourceTree = "<group>"; };
 		F314C06F525748A495731636 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		F3EE321C1F59479DB6153365 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
@@ -627,6 +643,14 @@
 		DC479CFEDBB54EF591802C9B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CEBCF49720B932EC00E38EBD /* facebook.png */,
+				CEBCF46B20B932EB00E38EBD /* google.png */,
+				CEBCF49820B932EC00E38EBD /* instagram.png */,
+				CEBCF49920B932EC00E38EBD /* linkedin.png */,
+				CEBCF49320B932EB00E38EBD /* skype.png */,
+				CEBCF49520B932EC00E38EBD /* twitter.png */,
+				CEBCF49620B932EC00E38EBD /* whatsapp.png */,
+				CEBCF49420B932EB00E38EBD /* youtube.png */,
 				4DB736C687A44EE0808F450C /* Entypo.ttf */,
 				F314C06F525748A495731636 /* EvilIcons.ttf */,
 				80CD4DE1486D4A6BB348F2A9 /* Feather.ttf */,
@@ -1033,15 +1057,23 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				90AFBECA1CEE4B978A85AF06 /* Entypo.ttf in Resources */,
+				CEBCF4A120B932EC00E38EBD /* linkedin.png in Resources */,
 				2F7FD3E71D984B85B0807BEE /* EvilIcons.ttf in Resources */,
 				1C0195A6499E42BE8C854C84 /* Feather.ttf in Resources */,
+				CEBCF49F20B932EC00E38EBD /* facebook.png in Resources */,
 				DAE865FB77EE430BA5D68E84 /* FontAwesome.ttf in Resources */,
 				105732C8438B46D3A6CE723B /* Foundation.ttf in Resources */,
+				CEBCF49B20B932EC00E38EBD /* skype.png in Resources */,
 				8CBD0082CC7D4C2ABA0350C5 /* Ionicons.ttf in Resources */,
+				CEBCF49E20B932EC00E38EBD /* whatsapp.png in Resources */,
 				C0101F6EFCC041A0885AE4FC /* MaterialCommunityIcons.ttf in Resources */,
+				CEBCF49D20B932EC00E38EBD /* twitter.png in Resources */,
 				31017B624BD9481A9D30CE68 /* MaterialIcons.ttf in Resources */,
+				CEBCF49C20B932EC00E38EBD /* youtube.png in Resources */,
 				41866E88D5E447D08A719584 /* Octicons.ttf in Resources */,
 				5F7C879776104F87851BEA60 /* SimpleLineIcons.ttf in Resources */,
+				CEBCF49A20B932EC00E38EBD /* google.png in Resources */,
+				CEBCF4A020B932EC00E38EBD /* instagram.png in Resources */,
 				CF949045307746A7B3838CFA /* Zocial.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

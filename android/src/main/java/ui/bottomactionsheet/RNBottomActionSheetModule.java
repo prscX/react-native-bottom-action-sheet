@@ -1,8 +1,10 @@
 
 package ui.bottomactionsheet;
 
+import android.annotation.TargetApi;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -11,6 +13,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.StrictMode;
+import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.graphics.Bitmap;
@@ -201,7 +204,7 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
     dialog.show();
   }
 
-
+  @TargetApi(21)
   private Drawable generateVectorIcon(ReadableMap icon) {
     StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
     StrictMode.setThreadPolicy(policy);
@@ -211,6 +214,14 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
     String glyph = icon.getString("glyph");
     String color = icon.getString("color");
     int size = icon.getInt("size");
+
+    if (name != null && name.length() > 0 && name.contains(".")) {
+      Resources resources = getReactApplicationContext().getResources();
+      name = name.substring(0, name.lastIndexOf("."));
+
+      final int resourceId = resources.getIdentifier(name, "drawable", getReactApplicationContext().getPackageName());
+      return getReactApplicationContext().getDrawable(resourceId);
+    }
 
     float scale = getReactApplicationContext().getResources().getDisplayMetrics().density;
     String scaleSuffix = "@" + (scale == (int) scale ? Integer.toString((int) scale) : Float.toString(scale)) + "x";

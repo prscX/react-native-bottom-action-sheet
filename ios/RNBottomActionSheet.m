@@ -114,6 +114,10 @@ RCT_EXPORT_METHOD(GridView:(NSDictionary *)props callback:(RCTResponseSenderBloc
     NSNumber *size = [icon objectForKey: @"size"];
     NSString *color = [icon objectForKey: @"color"];
     
+    if (name != nil && [name length] > 0 && [name containsString: @"."]) {
+        return [UIImage imageNamed: name];
+    }
+    
     UIColor *uiColor = [RNBottomActionSheet colorFromHexCode: color];
     CGFloat screenScale = RCTScreenScale();
     
