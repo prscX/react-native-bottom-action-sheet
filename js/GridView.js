@@ -20,7 +20,7 @@ class GridView extends PureComponent {
   };
 
   static defaultProps = {
-    title: '',
+    title: "",
     theme: "light",
     itemTextColor: "",
     itemTintColor: "",
@@ -41,20 +41,23 @@ class GridView extends PureComponent {
 
     props.items = props.items.map(element => {
       if (element.icon && element.icon.props) {
-        element.icon = element.icon.props
+        element.icon = element.icon.props;
 
-        let glyph = RNVectorHelper.Resolve(element.icon.family, element.icon.name);
-        element.icon = Object.assign({}, element.icon, {
-          glyph: glyph
-        });
-      } else {
+        let glyph = RNVectorHelper.Resolve(
+          element.icon.family,
+          element.icon.name
+        );
+        element.icon = Object.assign({}, element.icon, { glyph: glyph });
+      } else if (element.icon !== undefined) {
         element.icon = {
           name: element.icon,
-          family: '',
-          glyph: '',
-          color: '',
+          family: "",
+          glyph: "",
+          color: "",
           size: 0
-        }
+        };
+      } else {
+        element.icon = {};
       }
 
       element.divider = false;
@@ -72,7 +75,7 @@ class GridView extends PureComponent {
         backgroundColor: props.backgroundColor
       },
       selectedIndex => {
-        const selectedValue = props.items[selectedIndex].value
+        const selectedValue = props.items[selectedIndex].value;
         props.onSelection && props.onSelection(selectedIndex, selectedValue);
       }
     );
@@ -109,12 +112,17 @@ class GridView extends PureComponent {
 }
 
 
-class Item extends PureComponent {}
+class Item extends PureComponent { }
 
 Item.propTypes = {
   title: PropTypes.string,
   divider: PropTypes.bool,
-  icon: PropTypes.number
+
+  icon: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.object
+  ])
 };
 
 Item.defaultProps = {

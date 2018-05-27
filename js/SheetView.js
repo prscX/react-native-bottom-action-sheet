@@ -64,14 +64,10 @@ class SheetView extends PureComponent {
 
         let glyph = RNVectorHelper.Resolve(element.icon.family, element.icon.name);
         element.icon = Object.assign({}, element.icon, { glyph: glyph });
+      } else if (element.icon !== undefined) {
+        element.icon = { name: element.icon, family: "", glyph: "", color: "", size: 0 };
       } else {
-        element.icon = {
-          name: element.icon,
-          family: '',
-          glyph: '',
-          color: '',
-          size: 0
-        }
+        element.icon = {}
       }
 
       return element;
@@ -130,15 +126,18 @@ class SheetView extends PureComponent {
   }
 }
 
-class Item extends PureComponent {
-
-}
+class Item extends PureComponent { }
 
 Item.propTypes = {
   title: PropTypes.string,
   subTitle: PropTypes.string,
   divider: PropTypes.bool,
-  icon: PropTypes.number
+
+  icon: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.object
+  ])
 }
 
 Item.defaultProps = {

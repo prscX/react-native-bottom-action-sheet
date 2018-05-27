@@ -83,10 +83,11 @@ RCT_EXPORT_METHOD(GridView:(NSDictionary *)props callback:(RCTResponseSenderBloc
         [itemTitles addObject: [item objectForKey: @"title"]];
 
         NSDictionary *icon = [item objectForKey: @"icon"];
-        if (icon == nil) {
+        if (icon == nil || [icon count] == 0) {
+            [itemIcons addObject: [[UIImage alloc] init]];
             continue;
         }
-        
+
         UIImage *image = [self generateVectorIcon: icon];
         [itemIcons addObject: image];
     }
@@ -96,7 +97,7 @@ RCT_EXPORT_METHOD(GridView:(NSDictionary *)props callback:(RCTResponseSenderBloc
     } else {
         [[SGActionView sharedActionView] setStyle:SGActionViewStyleDark];
     }
-    
+
     [SGActionView showGridMenuWithTitle:title
           itemTitles:itemTitles
        images:itemIcons

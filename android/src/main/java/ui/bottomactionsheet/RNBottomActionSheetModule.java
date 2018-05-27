@@ -135,7 +135,8 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
       } else {
         String iconKey = "icon";
         ReadableMap icon = item.hasKey(iconKey) ? item.getMap(iconKey) : null;
-        if (icon == null) {
+        if (icon == null || icon.toHashMap().size() == 0) {
+          bottomSheetBuilder = bottomSheetBuilder.addItem(index, item.getString("title"), null);
           continue;
         }
 
@@ -183,9 +184,11 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
 
     for (int index = 0; index < items.size(); index++) {
       ReadableMap item = items.getMap(index);
-      ReadableMap icon = item.getMap("icon");
 
-      if (icon == null) {
+      String iconKey = "icon";
+      ReadableMap icon = item.hasKey(iconKey) ? item.getMap(iconKey) : null;
+      if (icon == null || icon.toHashMap().size() == 0) {
+        bottomSheetBuilder = bottomSheetBuilder.addItem(index, item.getString("title"), null);
         continue;
       }
 

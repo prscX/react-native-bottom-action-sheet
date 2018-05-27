@@ -65,7 +65,7 @@ export default class App extends Component<{}> {
       title: "Awesome!",
       items: [
         { title: "Facebook", subTitle: "Facebook Description", icon: 'facebook.png' },
-        { title: "Instagram", subTitle: "Instagram Description", icon: instagram },
+        { title: "Instagram", subTitle: "Instagram Description" },
         { title: "Skype", subTitle: "Skype Description", icon: skype },
         { title: "Twitter", subTitle: "Twitter Description", icon: twitter, divider: true },
         { title: "WhatsApp", subTitle: "WhatsApp Description", icon: whatsapp },
@@ -97,7 +97,7 @@ export default class App extends Component<{}> {
       title: "Awesome!",
       items: [
         { title: "Facebook", icon: 'facebook.png' },
-        { title: "Instagram", icon: instagram },
+        { title: "Instagram" },
         { title: "Skype", icon: skype },
         { title: "Twitter", icon: twitter },
         { title: "WhatsApp", icon: whatsapp },
