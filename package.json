@@ -1,6 +1,6 @@
 {
     "name": "react-native-bottom-action-sheet",
-    "version": "0.0.14",
+    "version": "0.0.15",
     "description": "React Native: Native Bottom Action Sheet",
     "main": "js/index.js",
     "repository": {

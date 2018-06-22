@@ -31,12 +31,16 @@ RCT_EXPORT_METHOD(AlertView:(NSDictionary *)props callback:(RCTResponseSenderBlo
         [[SGActionView sharedActionView] setStyle:SGActionViewStyleDark];
     }
     
+    __block bool callbackInvoked = false;
     [SGActionView showAlertWithTitle:title
          message:message
         leftButtonTitle:negativeText
          rightButtonTitle:positiveText
           selectedHandle:^(NSInteger index) {
+              if (callbackInvoked) return;
+
               callback(@[[NSNumber numberWithLong: index]]);
+              callbackInvoked = true;
           }
      ];
 }
@@ -61,12 +65,16 @@ RCT_EXPORT_METHOD(SheetView:(NSDictionary *)props callback:(RCTResponseSenderBlo
         [[SGActionView sharedActionView] setStyle:SGActionViewStyleDark];
     }
 
+    __block bool callbackInvoked = false;
     [SGActionView showSheetWithTitle:title
          itemTitles:itemTitles
         itemSubTitles:itemSubTitles
           selectedIndex: [selection intValue]
           selectedHandle:^(NSInteger index) {
+              if (callbackInvoked) return;
+
               callback(@[[NSNumber numberWithLong: index]]);
+              callbackInvoked = true;
           }
      ];
 }
@@ -98,11 +106,15 @@ RCT_EXPORT_METHOD(GridView:(NSDictionary *)props callback:(RCTResponseSenderBloc
         [[SGActionView sharedActionView] setStyle:SGActionViewStyleDark];
     }
 
+    __block bool callbackInvoked = false;
     [SGActionView showGridMenuWithTitle:title
           itemTitles:itemTitles
        images:itemIcons
          selectedHandle:^(NSInteger index) {
+             if (callbackInvoked) return;
+
              callback(@[[NSNumber numberWithLong: index]]);
+             callbackInvoked = true;
          }
      ];
 }
