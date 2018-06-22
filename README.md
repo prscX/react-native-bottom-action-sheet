@@ -1,3 +1,4 @@
+<h1 align="center">
 
 <p align="center">
   <img src="https://storage.googleapis.com/material-design/publish/material_v_12/assets/0B7WCemMG6e0VVWZzZ1FIN09XWGc/components-bottom-sheets.png" height="300" width="300" />
@@ -10,9 +11,10 @@
 </p>
 
 
-# React Native: Bottom Action Sheet (Android/iOS)
+    React Native: Native Bottom Action Sheet (Android/iOS)
+</h1>
 
-A simple library that creates BottomSheets according to the [Material Design Specs](https://material.google.com/components/bottom-sheets.html)
+A simple library that creates native BottomSheet actions according to the [Material Design Specs](https://material.google.com/components/bottom-sheets.html)
 
 ## Android
 
@@ -73,7 +75,7 @@ Please add below snippet into your app `build.gradle`
 buildscript {
     repositories {
         jcenter()
-        google()
+        maven { url "https://maven.google.com" }
 		...
     }
 	...
@@ -83,13 +85,13 @@ buildscript {
 allprojects {
     repositories {
         maven { url 'https://jitpack.io' }
-		google()
+		maven { url "https://maven.google.com" }
 		...
     }
 }
 ```
 
-> **Note:** This library is support on Android 25 > above
+> **Note:** This library is support on Android 27 > above
 
 ## Usage
 

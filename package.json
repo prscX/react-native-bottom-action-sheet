@@ -1,7 +1,7 @@
 {
     "name": "react-native-bottom-action-sheet",
-    "version": "0.0.13",
-    "description": "React Native: Bottom Action Sheet",
+    "version": "0.0.14",
+    "description": "React Native: Native Bottom Action Sheet",
     "main": "js/index.js",
     "repository": {
         "type": "git",
@@ -20,5 +20,5 @@
     "devDependencies": {
         "prettier-pack": "0.0.6"
     },
-    "license": "MIT"
+    "license": "Apache License 2.0"
 }

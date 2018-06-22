@@ -6,5 +6,5 @@ target 'RNBottomActionSheet' do
   # use_frameworks!
 
   # Pods for RNBottomActionSheet
-  pod 'SGActionView'
+  pod 'SGActionView', :git => 'https://github.com/prscX/SGActionView.git'
 end
