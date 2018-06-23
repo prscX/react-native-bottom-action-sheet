@@ -19,45 +19,39 @@ If this project has helped you out, please support us with a star 🌟
 A simple library that creates native BottomSheet actions according to the [Material Design Specs](https://material.google.com/components/bottom-sheets.html)
 
 
-## Android
+#### Android
 
 
-| **Sheet View**             |
+| **[Sheet View: rubensousa/BottomSheetBuilder](https://github.com/rubensousa/BottomSheetBuilder)**             |
 | ----------------- |
 | <img src="https://github.com/rubensousa/BottomSheetBuilder/raw/master/screens/normal_demo.gif" width="320" />                  |
 
-| **Grid View**             |
+| **[Grid View: rubensousa/BottomSheetBuilder](https://github.com/rubensousa/BottomSheetBuilder)**             |
 | ----------------- |
 | <img src="https://github.com/rubensousa/BottomSheetBuilder/raw/master/screens/tablet_grid.png" width="600"/>                  |
 
 
-| **Alert View**             |
+| **[Alert View: javiersantos/BottomDialogs](https://github.com/javiersantos/BottomDialogs)**             |
 | ----------------- |
 | <img src="https://raw.githubusercontent.com/javiersantos/BottomDialogs/master/Screenshots/gif-1.gif" width="320" />                 
 
-## iOS
+#### iOS
 
-| **Sheet View**             |
+| **[Sheet View: sagiwei/SGActionView](https://github.com/sagiwei/SGActionView)**             |
 | ----------------- |
 | <img src="https://github.com/sagiwei/SGActionView/raw/master/sheet.png" width="437" />                  |
 
-| **Grid View**             |
+| **[Grid View: sagiwei/SGActionView](https://github.com/sagiwei/SGActionView)**             |
 | ----------------- |
 | <img src="https://github.com/sagiwei/SGActionView/raw/master/grid.png" width="437" />                  |
 
 
-| **Alert View**             |
+| **[Alert View: sagiwei/SGActionView](https://github.com/sagiwei/SGActionView)**             |
 | ----------------- |
 | <img src="https://github.com/sagiwei/SGActionView/raw/master/alert.png" width="437" />                  |
 
 
-It is a React Native Bridge around below native Android & iOS Libraries
-
-- [rubensousa/BottomSheetBuilder](https://github.com/rubensousa/BottomSheetBuilder)
-- [javiersantos/BottomDialogs](https://github.com/javiersantos/BottomDialogs)
-- [sagiwei/SGActionView](https://github.com/sagiwei/SGActionView)
-
-## Getting started
+## 📖 Getting started
 
 `$ npm install react-native-bottom-action-sheet --save`
 
