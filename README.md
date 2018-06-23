@@ -12,9 +12,12 @@
 
 
     React Native: Native Bottom Action Sheet (Android/iOS)
+
+If this project has helped you out, please support us with a star 🌟
 </h1>
 
 A simple library that creates native BottomSheet actions according to the [Material Design Specs](https://material.google.com/components/bottom-sheets.html)
+
 
 ## Android
 
@@ -93,7 +96,7 @@ allprojects {
 
 > **Note:** This library is support on Android 27 > above
 
-## Usage
+## 💻 Usage
 
 ```javascript
 import RNBottomActionSheet from 'react-native-bottom-action-sheet';
@@ -102,6 +105,7 @@ import Icon from 'react-native-vector-icons'
 
 ```
 
+## 💡 Example's
 
 - **Sheet View**
 
@@ -234,7 +238,7 @@ import Icon from 'react-native-vector-icons'
 		}} />
 	```
 
-## APIs
+## 🎨 APIs
 
 - **Sheet View**
 
@@ -321,20 +325,37 @@ import Icon from 'react-native-vector-icons'
 
 > Please refer example application for the image usage.
 
-## TO DO
-- Enable Android customization features for iOS platform as well
 
-## Credits
+## ✨ Credits
 
 - Android BottomSheetBuilder: [rubensousa/BottomSheetBuilder](https://github.com/rubensousa/BottomSheetBuilder)
 - Android BottomDialogs: [javiersantos/BottomDialogs](https://github.com/javiersantos/BottomDialogs)
 - iOS BottomSheet: [sagiwei/SGActionView](https://github.com/sagiwei/SGActionView)
 
-## Contribution
+## 🤔 How to contribute
+Have an idea? Found a bug? Please raise to [ISSUES](https://github.com/prscX/react-native-bottom-action-sheet/issues).
 Contributions are welcome and are greatly appreciated! Every little bit helps, and credit will always be given.
 
-## License
+## 💫 Where is this library used?
+If you are using this library in one of your projects, add it in this list below. ✨
+
+
+## 📜 License
 This library is provided under the Apache 2 License.
 
-RNBottomActionSheet @ Pranav Raj Singh Chauhan
+RNBottomActionSheet @ [prscX](https://github.com/prscX)
 
+## 💖 Support my projects
+I open-source almost everything I can, and I try to reply everyone needing help using these projects. Obviously, this takes time. You can integrate and use these projects in your applications for free! You can even change the source code and redistribute (even resell it).
+
+However, if you get some profit from this or just want to encourage me to continue creating stuff, there are few ways you can do it:
+* Starring and sharing the projects you like 🚀
+* If you're feeling especially charitable, please follow [prscX](https://github.com/prscX) on GitHub.
+
+  <a href="https://www.buymeacoffee.com/prscX" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+
+  Thanks! ❤️
+  <br/>
+  [prscX.github.io](https://prscx.github.io)
+  <br/>
+  </ Pranav >
