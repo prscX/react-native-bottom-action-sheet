@@ -61,7 +61,7 @@ A simple library that creates native BottomSheet actions according to the [Mater
 
 - **iOS**
 
-`$ cd ./node_modules/react-native-bottom-action-sheet/ios/ && pod install`
+	- After `react-native link react-native-app-tour`, please verify node_modules/react-native-bottom-action-sheet/ios/ contains Pods folder. If does not exist please execute `pod install` command on `node_modules/react-native-bottom-action-sheet/ios/`, if any error => try `pod repo update` then `pod install`
 
 - **Android**
 
