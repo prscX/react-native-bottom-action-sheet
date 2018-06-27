@@ -11,7 +11,7 @@
 </p>
 
 
-    React Native: Native Bottom Action Sheet (Android/iOS)
+    ReactNative: Native Bottom Action Sheet (Android/iOS)
 
 If this project has helped you out, please support us with a star 🌟
 </h1>
