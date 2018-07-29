@@ -113,7 +113,7 @@ RCT_EXPORT_METHOD(GridView:(NSDictionary *)props callback:(RCTResponseSenderBloc
          selectedHandle:^(NSInteger index) {
              if (callbackInvoked) return;
 
-             callback(@[[NSNumber numberWithLong: index]]);
+             callback(@[[NSNumber numberWithLong: index - 1]]);
              callbackInvoked = true;
          }
      ];

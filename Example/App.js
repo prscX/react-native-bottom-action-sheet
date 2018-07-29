@@ -82,14 +82,14 @@ export default class App extends Component<{}> {
   }
 
   _showGridView = () => {
-    let facebook = <Icon name={'facebook'} color={'#000000'} size={40} family={'FontAwesome'} />
-    let instagram = <Icon name={"instagram"} color={"#000000"} size={40} family={"FontAwesome"} />;
-    let skype = <Icon name={"skype"} color={"#000000"} size={40} family={"FontAwesome"} />;
-    let twitter = <Icon name={"twitter"} color={"#000000"} size={40} family={"FontAwesome"} />;
-    let whatsapp = <Icon name={"whatsapp"} color={"#000000"} size={40} family={"FontAwesome"} />;
-    let youtube = <Icon name={"youtube"} color={"#000000"} size={40} family={"FontAwesome"} />;
-    let google = <Icon name={'google'} color={'#000000'} size={40} family={'FontAwesome'} />
-    let linkedin = <Icon name={"linkedin"} color={"#000000"} size={40} family={"FontAwesome"} />;
+    let facebook = <Icon name={'facebook'} color={'#000000'} size={10} family={'FontAwesome'} />
+    let instagram = <Icon name={"instagram"} color={"#000000"} size={10} family={"FontAwesome"} />;
+    let skype = <Icon name={"skype"} color={"#000000"} size={10} family={"FontAwesome"} />;
+    let twitter = <Icon name={"twitter"} color={"#000000"} size={10} family={"FontAwesome"} />;
+    let whatsapp = <Icon name={"whatsapp"} color={"#000000"} size={10} family={"FontAwesome"} />;
+    let youtube = <Icon name={"youtube"} color={"#000000"} size={10} family={"FontAwesome"} />;
+    let google = <Icon name={'google'} color={'#000000'} size={10} family={'FontAwesome'} />
+    let linkedin = <Icon name={"linkedin"} color={"#000000"} size={10} family={"FontAwesome"} />;
 
 
     let GridView = RNBottomActionSheet.GridView
