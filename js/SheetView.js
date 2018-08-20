@@ -62,8 +62,8 @@ class SheetView extends PureComponent {
       if (element.icon && element.icon.props) {
         element.icon = element.icon.props;
 
-        let glyph = RNVectorHelper.Resolve(element.icon.family, element.icon.name);
-        element.icon = Object.assign({}, element.icon, { glyph: glyph });
+        let vectorIcon = RNVectorHelper.Resolve(element.icon.family, element.icon.name);
+        element.icon = Object.assign({}, element.icon, vectorIcon);
       } else if (element.icon !== undefined) {
         element.icon = { name: element.icon, family: "", glyph: "", color: "", size: 0 };
       } else {

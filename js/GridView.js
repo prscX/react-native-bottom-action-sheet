@@ -43,11 +43,11 @@ class GridView extends PureComponent {
       if (element.icon && element.icon.props) {
         element.icon = element.icon.props;
 
-        let glyph = RNVectorHelper.Resolve(
+        let vectorIcon = RNVectorHelper.Resolve(
           element.icon.family,
           element.icon.name
         );
-        element.icon = Object.assign({}, element.icon, { glyph: glyph });
+        element.icon = Object.assign({}, element.icon, vectorIcon);
       } else if (element.icon !== undefined) {
         element.icon = {
           name: element.icon,
