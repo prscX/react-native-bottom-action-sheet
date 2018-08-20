@@ -234,7 +234,7 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
     Paint paint = new Paint();
     paint.setTypeface(typeface);
     paint.setColor(Color.parseColor(color));
-    paint.setTextSize(size);
+    paint.setTextSize(fontSize);
     paint.setAntiAlias(true);
     Rect textBounds = new Rect();
     paint.getTextBounds(glyph, 0, glyph.length(), textBounds);
