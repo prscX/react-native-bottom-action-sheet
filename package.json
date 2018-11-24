@@ -1,6 +1,6 @@
 {
     "name": "react-native-bottom-action-sheet",
-    "version": "0.0.18",
+    "version": "0.0.19",
     "description": "React Native: Native Bottom Action Sheet",
     "main": "js/index.js",
     "repository": {
@@ -9,17 +9,18 @@
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "postinstall": "node scripts/installer.js"
+        "postinstall": "node ../pod-installer/index.js"
     },
     "keywords": [
         "react-native"
     ],
     "author": "Pranav Raj Singh Chauhan",
     "dependencies": {
+        "pod-installer": "0.0.0",
         "react-native-vector-icons": "5.0.0"
     },
     "devDependencies": {
-        "prettier-pack": "0.0.7"
+        "prettier-pack": "0.0.8"
     },
     "license": "Apache License 2.0"
 }
