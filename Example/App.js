@@ -64,8 +64,8 @@ export default class App extends Component<{}> {
     SheetView.Show({
       title: "Awesome!",
       items: [
-        { title: "Facebook", subTitle: "Facebook Description", icon: 'facebook.png' },
-        { title: "Instagram", subTitle: "Instagram Description" },
+        { title: "Facebook", subTitle: "Facebook Description", icon: facebook },
+        { title: "Instagram", subTitle: "Instagram Description", icon: instagram },
         { title: "Skype", subTitle: "Skype Description", icon: skype },
         { title: "Twitter", subTitle: "Twitter Description", icon: twitter, divider: true },
         { title: "WhatsApp", subTitle: "WhatsApp Description", icon: whatsapp },
@@ -96,8 +96,8 @@ export default class App extends Component<{}> {
     GridView.Show({
       title: "Awesome!",
       items: [
-        { title: "Facebook", icon: 'facebook.png' },
-        { title: "Instagram" },
+        { title: "Facebook", icon: facebook },
+        { title: "Instagram", icon: instagram },
         { title: "Skype", icon: skype },
         { title: "Twitter", icon: twitter },
         { title: "WhatsApp", icon: whatsapp },
