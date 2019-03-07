@@ -38,6 +38,6 @@ repositories {
 dependencies {
     implementation 'com.facebook.react:react-native:+'
     implementation 'com.github.javiersantos:BottomDialogs:1.2.1'
-    implementation 'com.github.rubensousa:bottomsheetbuilder:1.6.1'
+    implementation 'com.github.prscx:bottomsheetbuilder:fixes-SNAPSHOT'
     implementation 'com.android.support:design:27.1.1'
 }
