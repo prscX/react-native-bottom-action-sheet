@@ -105,27 +105,26 @@ import Icon from 'react-native-vector-icons'
 
 	- **API Way**
 
-	```javascript
+  ```javascript
+  let facebook = <Icon family={'FontAwesome'} name={'facebook'} color={'#000000'} size={30} />
+  let instagram = <Icon family={'FontAwesome'} name={'instagram'} color={'#000000'} size={30} />
+  let SheetView = RNBottomActionSheet.SheetView;
 
-	let facebook = <Icon family={'FontAwesome'} name={'facebook'} color={'#000000'} size={30} />
-	let instagram = <Icon family={'FontAwesome'} name={'instagram'} color={'#000000'} size={30} />
-
-	let SheetView = RNBottomActionSheet.SheetView
-	SheetView.Show({
-		title: "Awesome!",
-		items: [
-			{ title: "Facebook", value: "fb", subTitle: "Facebook Description", icon: facebook },
-			{ title: "Instagram", value: "insta", subTitle: "Instagram Description", icon: instagram },
-		],
-		theme: "light",
-		selection: 3,
-		onSelection: (index, value) => {
-			// value is optional
-			console.log("selection: " + index + " " + value);
-		}
-	});
-
-	```
+  SheetView.Show({
+    title: "Awesome!",
+    items: [
+      { title: "Facebook", value: "fb", subTitle: "Facebook Description", icon: facebook },
+      { title: "Instagram", value: "insta", subTitle: "Instagram Description", icon: instagram },
+    ],
+    theme: "light",
+    selection: 3,
+    onSelection: (index, value) => {
+      // value is optional
+      console.log("selection: " + index + " " + value);
+    },
+    onCancel: () => console.log('Closing the bottom SheetView!!!')
+  });
+  ```
 
 	- **React Way**
 
@@ -140,7 +139,6 @@ import Icon from 'react-native-vector-icons'
 		<RNBottomActionSheet.SheetView.Item title={"Facebook"} subTitle={"Facebook Description"} icon={facebook} />
 		<RNBottomActionSheet.SheetView.Item title={"Instagram"} subTitle={"Instagram Description"} icon={instagram} />
 	</RNBottomActionSheet.SheetView>
-
 	```
 
 > **Note:**

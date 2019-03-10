@@ -89,7 +89,7 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void SheetView(final ReadableMap props, final Callback callback) {
+  public void SheetView(final ReadableMap props, final Callback onSelecctionCallback, final Callback onCancelCallback) {
     String title = props.getString("title");
     ReadableArray items = props.getArray("items");
 
@@ -150,7 +150,14 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
     bottomSheetBuilder = bottomSheetBuilder.setItemClickListener(new BottomSheetItemClickListener() {
       @Override
       public void onBottomSheetItemClick(MenuItem item) {
-        callback.invoke(item.getItemId());
+        onSelecctionCallback.invoke(item.getItemId());
+      }
+    });
+
+    dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+      @Override
+      public void onCancel(DialogInterface dialog) {
+        onCancelCallback.invoke();
       }
     });
 
