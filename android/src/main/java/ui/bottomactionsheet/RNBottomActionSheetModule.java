@@ -4,6 +4,7 @@ package ui.bottomactionsheet;
 import android.annotation.TargetApi;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -154,6 +155,7 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
       }
     });
 
+    BottomSheetMenuDialog dialog = bottomSheetBuilder.createDialog();
     dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
       @Override
       public void onCancel(DialogInterface dialog) {
@@ -161,7 +163,6 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
       }
     });
 
-    BottomSheetMenuDialog dialog = bottomSheetBuilder.createDialog();
     dialog.show();
   }
 
