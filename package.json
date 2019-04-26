@@ -3,6 +3,7 @@
     "version": "0.0.20",
     "description": "React Native: Native Bottom Action Sheet",
     "main": "js/index.js",
+    "homepage": "https://github.com/prscX/react-native-bottom-action-sheet.git",
     "repository": {
         "type": "git",
         "url": "https://github.com/prscX/react-native-bottom-action-sheet.git"
