@@ -45,7 +45,7 @@ RCT_EXPORT_METHOD(AlertView:(NSDictionary *)props callback:(RCTResponseSenderBlo
      ];
 }
 
-RCT_EXPORT_METHOD(SheetView:(NSDictionary *)props callback:(RCTResponseSenderBlock)callback) {
+RCT_EXPORT_METHOD(SheetView:(NSDictionary *)props onSelecctionCallback:(RCTResponseSenderBlock)onSelecctionCallback onCancelCallback:(RCTResponseSenderBlock)onCancelCallback) {
     NSString *title = [props objectForKey: @"title"];
     NSArray *items = [props objectForKey: @"items"];
     NSString *theme = [props objectForKey: @"theme"];
@@ -73,7 +73,7 @@ RCT_EXPORT_METHOD(SheetView:(NSDictionary *)props callback:(RCTResponseSenderBlo
           selectedHandle:^(NSInteger index) {
               if (callbackInvoked) return;
 
-              callback(@[[NSNumber numberWithLong: index]]);
+              onSelecctionCallback(@[[NSNumber numberWithLong: index]]);
               callbackInvoked = true;
           }
      ];
