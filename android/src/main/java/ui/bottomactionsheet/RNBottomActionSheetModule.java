@@ -121,6 +121,9 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
       bottomSheetBuilder = bottomSheetBuilder.setBackgroundColor(Color.parseColor(backgroundColor));
     }
 
+    if (items.size() == 0) {
+      return;
+    }
 
     for (int index = 0; index < items.size(); index++) {
       ReadableMap item = items.getMap(index);
@@ -196,6 +199,9 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
       bottomSheetBuilder = bottomSheetBuilder.setBackgroundColor(Color.parseColor(backgroundColor));
     }
 
+    if (items.size() == 0) {
+      return;
+    }
 
     for (int index = 0; index < items.size(); index++) {
       ReadableMap item = items.getMap(index);
