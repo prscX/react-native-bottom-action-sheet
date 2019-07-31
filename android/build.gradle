@@ -19,7 +19,7 @@ android {
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
     }
@@ -39,5 +39,5 @@ dependencies {
     implementation 'com.facebook.react:react-native:+'
     implementation 'com.github.javiersantos:BottomDialogs:1.2.1'
     implementation 'com.github.prscx:bottomsheetbuilder:fixes-SNAPSHOT'
-    implementation 'com.android.support:design:27.1.1'
+    implementation 'androidx.core:core:1.0.2'
 }
