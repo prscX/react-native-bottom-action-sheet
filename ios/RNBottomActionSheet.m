@@ -79,7 +79,7 @@ RCT_EXPORT_METHOD(SheetView:(NSDictionary *)props onSelecctionCallback:(RCTRespo
      ];
 }
 
-RCT_EXPORT_METHOD(GridView:(NSDictionary *)props callback:(RCTResponseSenderBlock)callback) {
+RCT_EXPORT_METHOD(GridView:(NSDictionary *)props onSelecctionCallback:(RCTResponseSenderBlock)onSelecctionCallback onCancelCallback:(RCTResponseSenderBlock)onCancelCallback) {
     NSString *title = [props objectForKey: @"title"];
     NSArray *items = [props objectForKey: @"items"];
     NSString *theme = [props objectForKey: @"theme"];
@@ -97,7 +97,9 @@ RCT_EXPORT_METHOD(GridView:(NSDictionary *)props callback:(RCTResponseSenderBloc
         }
 
         UIImage *image = [self generateVectorIcon: icon];
-        [itemIcons addObject: image];
+        if (image != nil) {
+            [itemIcons addObject: image];
+        }
     }
 
     if ([theme isEqualToString: @"light"]) {
@@ -113,7 +115,7 @@ RCT_EXPORT_METHOD(GridView:(NSDictionary *)props callback:(RCTResponseSenderBloc
          selectedHandle:^(NSInteger index) {
              if (callbackInvoked) return;
 
-             callback(@[[NSNumber numberWithLong: index - 1]]);
+             onSelecctionCallback(@[[NSNumber numberWithLong: index - 1]]);
              callbackInvoked = true;
          }
      ];

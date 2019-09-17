@@ -1,6 +1,6 @@
 {
     "name": "react-native-bottom-action-sheet",
-    "version": "0.0.23",
+    "version": "1.0.0",
     "description": "React Native: Native Bottom Action Sheet",
     "main": "js/index.js",
     "homepage": "https://github.com/prscX/react-native-bottom-action-sheet.git",
@@ -9,16 +9,14 @@
         "url": "https://github.com/prscX/react-native-bottom-action-sheet.git"
     },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "postinstall": "node ../pod-installer/index.js"
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [
         "react-native"
     ],
     "author": "Pranav Raj Singh Chauhan",
     "dependencies": {
-        "pod-installer": "0.0.0",
-        "react-native-vector-icons": "5.0.0"
+        "react-native-vector-icons": "6.6.0"
     },
     "devDependencies": {
         "prettier-pack": "0.0.8"

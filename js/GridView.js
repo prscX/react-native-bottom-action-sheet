@@ -77,6 +77,9 @@ class GridView extends PureComponent {
       selectedIndex => {
         const selectedValue = props.items[selectedIndex].value;
         props.onSelection && props.onSelection(selectedIndex, selectedValue);
+      },
+      () => {
+        props.onCancel && props.onCancel()
       }
     );
   }
