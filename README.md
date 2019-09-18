@@ -55,6 +55,33 @@ A simple library that creates native BottomSheet actions according to the [Mater
 
 `$ npm install react-native-bottom-action-sheet --save`
 
+## **RN60 >=**
+
+- **iOS**
+
+	- Add the following to your `Podfile` -> `ios/Podfile` and run pod update:
+
+	```
+		pod 'RNBottomActionSheet', :path => '../node_modules/react-native-bottom-action-sheet/ios'
+		pod 'SGActionView', :git => 'https://github.com/prscX/SGActionView.git'
+	```
+
+- **Android**
+
+Please add below snippet into your app `build.gradle`
+
+```
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+		maven { url "https://maven.google.com" }
+		...
+    }
+}
+```
+
+## **RN60 <**
+
 `$ react-native link react-native-bottom-action-sheet`
 
 `$ react-native link react-native-vector-icons`
@@ -68,17 +95,6 @@ A simple library that creates native BottomSheet actions according to the [Mater
 Please add below snippet into your app `build.gradle`
 
 ```
-
-buildscript {
-    repositories {
-        jcenter()
-        maven { url "https://maven.google.com" }
-		...
-    }
-	...
-}
-
-
 allprojects {
     repositories {
         maven { url 'https://jitpack.io' }
