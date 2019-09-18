@@ -11,6 +11,9 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.StrictMode;
+import androidx.annotation.RequiresApi;
+import androidx.core.content.ContextCompat;
+import android.util.Log;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.view.MenuItem;
@@ -161,7 +164,7 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
 
 
   @ReactMethod
-  public void GridView(final ReadableMap props, final Callback callback) {
+  public void GridView(final ReadableMap props, final Callback onSelecctionCallback, final Callback onCancelCallback) {
     String title = props.getString("title");
     ReadableArray items = props.getArray("items");
 
@@ -207,14 +210,22 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
       bottomSheetBuilder = bottomSheetBuilder.addItem(index, item.getString("title"), drawable);
     }
 
+
     bottomSheetBuilder = bottomSheetBuilder.setItemClickListener(new BottomSheetItemClickListener() {
       @Override
       public void onBottomSheetItemClick(MenuItem item) {
-        callback.invoke(item.getItemId());
+        onSelecctionCallback.invoke(item.getItemId());
       }
     });
 
     BottomSheetMenuDialog dialog = bottomSheetBuilder.createDialog();
+    dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+      @Override
+      public void onCancel(DialogInterface dialog) {
+        onCancelCallback.invoke();
+      }
+    });
+
     dialog.show();
   }
 
