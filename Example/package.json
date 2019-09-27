@@ -12,8 +12,8 @@
   "dependencies": {
     "react": "16.9.0",
     "react-native": "0.61.1",
-    "react-native-bottom-action-sheet": "../",
-    "react-native-vector-icons": "6.6.0"
+    "react-native-vector-icons": "6.6.0",
+    "react-native-bottom-action-sheet": "../"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",

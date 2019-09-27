@@ -55,15 +55,20 @@ A simple library that creates native BottomSheet actions according to the [Mater
 
 `$ npm install react-native-bottom-action-sheet --save`
 
-## **RN60 >=**
+## **RN60 >= RNBAS V1 >**
+
+> RN60 above please use `react-native-bottom-action-sheet` V1 and above
 
 - **iOS**
 
 	- Add the following to your `Podfile` -> `ios/Podfile` and run pod update:
 
 	```
-		pod 'RNBottomActionSheet', :path => '../node_modules/react-native-bottom-action-sheet/ios'
-		pod 'SGActionView', :git => 'https://github.com/prscX/SGActionView.git'
+ 		pod 'SGActionView', :git => 'https://github.com/prscX/SGActionView.git'
+
+	  	use_native_modules!
+
+  		pod 'RNBottomActionSheet', :path => '../node_modules/react-native-bottom-action-sheet/ios'
 	```
 
 - **Android**
@@ -74,13 +79,13 @@ Please add below snippet into your app `build.gradle`
 allprojects {
     repositories {
         maven { url 'https://jitpack.io' }
-		maven { url "https://maven.google.com" }
-		...
     }
 }
 ```
 
-## **RN60 <**
+## **RN60 < RNBAS V1 <**
+
+> RN60 below please use `react-native-bottom-action-sheet` V.0.*
 
 `$ react-native link react-native-bottom-action-sheet`
 

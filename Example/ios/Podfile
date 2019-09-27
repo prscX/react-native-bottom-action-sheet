@@ -34,10 +34,8 @@ target 'Example' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  pod 'RNBottomActionSheet', :path => '../node_modules/react-native-bottom-action-sheet/ios'
  	pod 'SGActionView', :git => 'https://github.com/prscX/SGActionView.git'
-
-  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons' 
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
   target 'ExampleTests' do
     inherit! :search_paths
@@ -45,6 +43,9 @@ target 'Example' do
   end
 
   use_native_modules!
+
+  pod 'RNBottomActionSheet', :path => '../node_modules/react-native-bottom-action-sheet/ios'
+
 end
 
 target 'Example-tvOS' do
