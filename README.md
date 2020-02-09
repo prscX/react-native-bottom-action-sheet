@@ -55,9 +55,41 @@ A simple library that creates native BottomSheet actions according to the [Mater
 
 `$ npm install react-native-bottom-action-sheet --save`
 
-## **RN60 >= RNBAS V1 >**
+## **RN61 >= RNBAS V2 >**
 
-> RN60 above please use `react-native-bottom-action-sheet` V1 and above
+- Add `react-native-image-helper` your app package.json
+
+`$ npm install react-native-image-helper --save`
+
+- **iOS**
+
+	- Add the following to your `Podfile` -> `ios/Podfile` and run pod update:
+
+	```
+ 		pod 'SGActionView', :git => 'https://github.com/prscX/SGActionView.git'
+
+	  	use_native_modules!
+
+  		pod 'RNBottomActionSheet', :path => '../node_modules/react-native-bottom-action-sheet/ios'
+		pod 'RNImageHelper', :path => '../node_modules/react-native-image-helper/ios'
+	```
+
+- **Android**
+
+Please add below snippet into your app `build.gradle`
+
+```
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+
+## **RN61 >= RNBAS V1 >**
+
+> RN61 above please use `react-native-bottom-action-sheet` V1 and above
 
 - **iOS**
 

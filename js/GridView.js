@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import { ViewPropTypes, NativeModules } from "react-native";
 import PropTypes from "prop-types";
 
-import RNVectorHelper from './RNVectorHelper'
+import RNImageHelper from 'react-native-image-helper'
 
 const { RNBottomActionSheet } = NativeModules;
 
@@ -43,7 +43,7 @@ class GridView extends PureComponent {
       if (element.icon && element.icon.props) {
         element.icon = element.icon.props;
 
-        let vectorIcon = RNVectorHelper.Resolve(
+        let vectorIcon = RNImageHelper.Resolve(
           element.icon.family,
           element.icon.name
         );

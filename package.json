@@ -1,6 +1,6 @@
 {
     "name": "react-native-bottom-action-sheet",
-    "version": "1.0.4",
+    "version": "2.0.0",
     "description": "React Native: Native Bottom Action Sheet",
     "main": "js/index.js",
     "homepage": "https://github.com/prscX/react-native-bottom-action-sheet.git",
@@ -16,7 +16,8 @@
     ],
     "author": "Pranav Raj Singh Chauhan",
     "dependencies": {
-        "react-native-vector-icons": "6.6.0"
+        "react-native-vector-icons": "6.6.0",
+        "react-native-image-helper": "0.0.1"
     },
     "devDependencies": {
         "prettier-pack": "0.0.8"

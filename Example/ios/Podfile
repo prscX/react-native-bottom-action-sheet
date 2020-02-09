@@ -44,6 +44,7 @@ target 'Example' do
 
   use_native_modules!
 
+  pod 'RNImageHelper', :path => '../node_modules/react-native-image-helper/ios'
   pod 'RNBottomActionSheet', :path => '../node_modules/react-native-bottom-action-sheet/ios'
 
 end
