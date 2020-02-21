@@ -61,6 +61,10 @@ A simple library that creates native BottomSheet actions according to the [Mater
 
 `$ npm install react-native-image-helper --save`
 
+- Add `react-native-vector-icons` to your app package.json and configure it as per their installation steps
+
+`$ npm install react-native-vector-icons --save`
+
 - **iOS**
 
 	- Add the following to your `Podfile` -> `ios/Podfile` and run pod update:
