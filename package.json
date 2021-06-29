@@ -1,6 +1,6 @@
 {
     "name": "react-native-bottom-action-sheet",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "React Native: Native Bottom Action Sheet",
     "main": "js/index.js",
     "homepage": "https://github.com/prscX/react-native-bottom-action-sheet.git",
@@ -18,7 +18,7 @@
     "dependencies": {
     },
     "devDependencies": {
-        "prettier-pack": "0.0.8"
+        "prettier-pack": "0.0.11"
     },
     "license": "Apache License 2.0"
 }
