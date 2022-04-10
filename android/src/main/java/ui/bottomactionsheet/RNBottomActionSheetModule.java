@@ -94,11 +94,11 @@ public class RNBottomActionSheetModule extends ReactContextBaseJavaModule {
     BottomSheetBuilder bottomSheetBuilder = new BottomSheetBuilder(getCurrentActivity());
     bottomSheetBuilder = bottomSheetBuilder.setMode(BottomSheetBuilder.MODE_LIST);
     if(title != null && title.trim().length() > 0) {
-      bottomSheetBuilder = bottomSheetBuilder.addTitleItem(title);
-
       if (titleTextColor != null && titleTextColor.length() > 0) {
         bottomSheetBuilder = bottomSheetBuilder.setTitleTextColor(Color.parseColor(titleTextColor));
       }
+
+      bottomSheetBuilder = bottomSheetBuilder.addTitleItem(title);
     }
     if (itemTextColor != null && itemTextColor.length() > 0) {
       bottomSheetBuilder = bottomSheetBuilder.setItemTextColor(Color.parseColor(itemTextColor));
